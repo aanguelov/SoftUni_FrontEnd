@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Life in SoftUni Keyboard</title>
+	<style>
+		table, th, td {
+    		border: 1px solid black;
+		}
+		table#t01 td {
+			border: hidden;
+		    height: 20px;
+		    width: 130px;
+		    font-size: 15px;
+		}
+
+		th, td {
+		    height: 80px;
+		    width: 100px;
+		}
+		button {
+			border-radius: 5px;
+			color: rgb(0, 0, 255);
+			background: linear-gradient(to bottom, #e6e6e6 0%,#d9d9d9 50%,#cbcbcb 51%,#dddddd 100%);
+		}
+		button#topButton {
+			font-size: 30px;
+			font-weight: bold;
+			height: 72px;
+			width: 463px;
+		}
+		button#secondRow {
+			font-size: 20px;
+			height: 78px;
+			width: 225px;
+		}
+		button#thirdRow {
+			font-size: 20px;
+			height: 78px;
+			width: 105px;
+		}
+		button#beerButton {
+			font-size: 30px;
+			height: 78px;
+			width: 345px;
+			text-align: right;
+		}
+		button#innerTable {
+			height: 30px;
+			width: 90px;
+		}
+		td {
+			font-size: 25px;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="4"><button id="topButton" onclick="window.open('https://softuni.bg/')">SOFTWARE UNIVERSITY</button></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td colspan="2"><button id="secondRow" onclick="window.open('https://www.google.bg/')">GOOGLE</button></td>
+				<td colspan="2"><button id="secondRow" onclick="window.open('https://github.com/')">GitHub</button></td>
+			</tr>
+			<tr>
+				<td><button id="thirdRow" onclick="window.open('https://bg-bg.facebook.com/')">Facebook</button></td>
+				<td><button id="thirdRow" onclick="window.open('https://mail.google.com')">GMail</button></td>
+				<td><button id="thirdRow" onclick="window.open('https://www.youtube.com/')">YouTube</button></td>
+				<td><button id="thirdRow" onclick="window.open('http://2048.bg/')">2048</button></td>
+			</tr>
+			<tr>
+				<td><button id="thirdRow" onclick="window.open('https://en.wikipedia.org/wiki/Food')">Food</button></td>
+				<td colspan="2"><button id="secondRow" onclick="window.open('http://www.edweek.org/media/2013/01/22/18games_birds600.jpg')">Game</button></td>
+				<td>
+					<table id="t01">
+						<tr>
+							<td><button id="innerTable" onclick="window.open('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSV2r0CCsOMKplOEPe5PJRtxE0UpO1Fh0oImPr6EZy0YOe3y0K-')">Social life</button></td>
+						</tr>
+						<tr>
+							<td><button id="innerTable" onclick="window.open('http://www.amusingtime.com/images/019/drunken-guys-funny-sleeping-position.jpeg')">Sleep</button></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3"><button id="beerButton" onclick="window.open('http://cdn.idigitaltimes.com/sites/idigitaltimes.com/files/2015/04/23/bar-trivia-beer.jpg')">Beer>>></button></td>
+				<td><button id="thirdRow" onclick="window.open('http://www.infosi.bg/wp-content/uploads/2014/08/wc.png')">WC</button></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
