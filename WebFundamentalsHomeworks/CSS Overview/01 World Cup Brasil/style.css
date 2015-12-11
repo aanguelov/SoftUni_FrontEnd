@@ -1,0 +1,173 @@
+#wrapper {
+	width: 1030px;
+	margin: auto;
+	padding: 1px;
+	background-color: #019247;
+	font-family: Tahoma;
+}
+
+table {
+  border: 2px solid black;
+  border-spacing: 0px;
+  border-radius: 17px;
+  margin: 20px auto;
+}
+
+th, td {
+  height: 45px;
+  padding: 7px;
+  border: 1px solid black;
+}
+
+tr:nth-child(2n + 1) {
+  background-color: white;
+}
+
+tr:nth-child(2n) {
+  background-color: #C0C0C0;
+}
+
+th {
+  background-color: #f8c816;
+  font-size: 24px;
+}
+
+th:first-child {
+  border-top-left-radius: 15px;
+}
+
+th:last-child {
+  border-top-right-radius: 15px;
+}
+
+tr:last-child > td:first-child {
+  border-bottom-left-radius: 15px;
+}
+
+tr:last-child > td:last-child {
+  border-bottom-right-radius: 15px;
+}
+
+.country {
+	width: 145px;
+	text-transform: capitalize;
+}
+
+.group, .result {
+	width: 70px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#host {
+	text-align: right;
+}
+
+select {
+  width: 40px;
+  height: 40px;
+  border: 1px solid gray;
+  padding-left: 2px;
+  font-size: 16px;
+}
+
+button {
+  width: 33px;
+  height: 33px;
+  border: none;
+}
+
+.red-button {
+	background: url(img/redbutton.png) no-repeat;
+}
+
+.red-button-second {
+	background: url(img/redbuttonsecond.png) no-repeat;
+}
+
+.green-button-second {
+	background: url(img/greensecond.png) no-repeat;
+}
+
+.green-button {
+	background: url(img/green.png) no-repeat;
+}
+
+.red-selector {
+	color: red;
+    background-color: #dddcdc;
+}
+
+.green-selector {
+	color: green;
+}
+
+#brasil {
+	background: url(img/brasil.png) no-repeat;
+	width: 24px;
+	height: 15px;
+	background-position: 60% 50%;
+}
+
+#mexico {
+	background: url(img/mexico.png) no-repeat;
+	background-position: 60% 50%;
+    width: 24px;
+	height: 15px;
+}
+
+#spain {
+	background: url(img/spain.png) no-repeat;
+	width: 24px;
+	height: 15px;
+	background-position: 60% 50%;
+}
+
+#italy {
+	background: url(img/italy.png) no-repeat;
+	width: 24px;
+	height: 15px;
+	background-position: 60% 50%;
+}
+
+#arg {
+	background: url(img/arg.png) no-repeat;
+	width: 24px;
+	height: 15px;
+	background-position: 60% 50%;
+}
+
+#germany {
+	background: url(img/germany.png) no-repeat;
+	width: 24px;
+	height: 15px;
+	background-position: 60% 50%;
+}
+
+#ned {
+	background: url(img/ned.png) no-repeat;
+	background-position: 60% 50%;
+    width: 24px;
+	height: 15px;
+}
+
+#eng {
+	background: url(img/eng.png) no-repeat;
+	background-position: 60% 50%;
+    width: 24px;
+	height: 15px;
+}
+
+#bih {
+	background: url(img/bih.png) no-repeat;
+	background-position: 60% 50%;
+    width: 24px;
+	height: 15px;
+}
+
+#por {
+	background: url(img/por.png) no-repeat;
+	background-position: 60% 50%;
+    width: 24px;
+	height: 15px;
+}
