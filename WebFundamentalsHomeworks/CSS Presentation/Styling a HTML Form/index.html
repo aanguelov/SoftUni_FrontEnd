@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Styling a HTML Form</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="wrapper">
+		<form>
+			<p>Step 1: Your details</p>
+			<fieldset>
+				<label for="name">Name</label>
+				<input type="text" id="name" name="names" placeholder="First and last name" /> <br />
+			</fieldset>
+			<fieldset>
+				<label for="email">Email</label>
+				<input type="text" id="email" name="email" placeholder="example@domain.com" /> <br />
+			</fieldset>
+			<fieldset>
+				<label for="phone">Phone</label>
+				<input type="text" id="phone" name="phone" placeholder="eg. +447500000000" />
+			</fieldset>
+
+			<p>Step 2: Delivery address</p>
+			<fieldset>
+				<label for="adress">Address</label>
+				<textarea name="address-field" id="address"></textarea>
+			</fieldset>
+			<fieldset>
+				<label for="code">Post code</label>
+				<input type="text" id="code" name="postcode" /> <br />
+			</fieldset>
+			<fieldset>
+				<label for="country">Country</label>
+				<input type="text" id="country" name="country" />
+			</fieldset>
+
+			<p>Step 3: Card details</p>
+			<fieldset>
+				<label for="type">Card type</label> <br />
+				<input type="radio" id="type" name="cardtype" value="visa" /> <img id="visa" />Visa
+				<input type="radio" id="type" name="cardtype" value="amex" /> <img id="amex" />AmEx
+				<input type="radio" id="type" name="cardtype" value="mastercard" /> <img id="mastercard" />Mastercard <br />
+			</fieldset>
+			<fieldset>
+				<label for="number">Card number</label>
+				<input type="text" id="number" name="cardnumber" /> <br />
+			</fieldset>
+			<fieldset>
+				<label for="security">Security code</label>
+				<input type="text" id="security" name="securitycode"> <br />
+			</fieldset>
+			<fieldset>
+				<label for="cardname">Name on card</label>
+				<input type="text" id="cardname" name="name-on-card" placeholder="exact name as on the card"> <br />
+			</fieldset>
+			<button>
+				buy it!
+			</button>
+		</form>
+	</div>
+</body>
+</html>
