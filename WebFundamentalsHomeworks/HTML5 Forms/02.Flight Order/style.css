@@ -1,0 +1,65 @@
+#to, 
+#from, 
+#departure-date, 
+#departure-time, 
+#return-date, 
+#return-time,
+#over12,
+#twoTo12,
+#zeroTo2,
+#class {
+	display: inline-block;
+}
+
+#from {
+	margin-right: 2px;
+	float: left;
+	clear: both;
+}
+
+#departure, #return {
+	width: 195px;
+}
+
+#plus12,
+#two-to-12,
+#zero-to-2 {
+	width: 59px;
+	margin-right: 1px;
+}
+
+select, input[type="submit"] {
+	width: 200px;
+	font-size: 17px;
+}
+
+label {
+	font-size: 12px;
+}
+
+form {
+	width: 408px;
+	height: 258px;
+	padding: 10px;
+	background-color: #ffcccc;
+}
+
+header {
+	font-size: 35px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bolder;
+}
+
+label, header {
+	font-family: sans-serif;
+	font-style: italic;
+}
+
+input[type="submit"] {
+	height: 25px;
+	margin-top: 3px;
+	margin-right: 4px;
+	float: right;
+	clear: both;
+}

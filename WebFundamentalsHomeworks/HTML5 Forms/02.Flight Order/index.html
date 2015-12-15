@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flight Order</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<form>
+		<header>
+			flight order
+		</header>
+		<div id="destination">
+			<div id="from">
+				<label for="from">From</label> <br />
+				<select name="from-city" id="from">
+					<option value="1">enter a city</option>
+				</select>
+			</div>
+			<div id="to">
+				<label for="to">To</label> <br />
+				<select name="to-city" id="to">
+					<option value="1">enter a city</option>
+				</select>
+				<br /><input type="checkbox" name="direct-flight" value="yes" id="flight" />
+				<label for="flight">Prefer directs</label>
+			</div>
+		</div>
+		<div id="departure-and-time">
+			<div id="departure-date">
+				<label for="departure">Departure Date</label> <br />
+				<input type="date" id="departure" name="departureDate" />
+			</div>
+			<div id="departure-time">
+				<label for="interval">Time Interval</label> <br />
+				<input type="time" id="interval" name="departure-time-start"/>
+				<input type="time" id="interval" name="departure-time-end"/>
+			</div>
+		</div>
+		<div id="return-and-time">
+			<div id="return-date">
+				<label for="return">Return Date</label> <br />
+				<input type="date" id="return" name="returnDate" />
+			</div>
+			<div id="return-time">
+				<label for="interval-departure">Time Interval</label> <br />
+				<input type="time" id="interval" name="return-time-start"/>
+				<input type="time" id="interval" name="return-time-end"/>
+			</div>
+		</div>
+		<div id="age-and-class">
+			<div id="over12">
+				<label for="plus12">12+</label> <br />
+				<input type="number" id="plus12" min="0" max="100" value="0" />
+			</div>
+			<div id="twoTo12">
+				<label for="2-12">2-12</label> <br />
+				<input type="number" id="two-to-12" min="0" max="100" value="0" />
+			</div>
+			<div id="zeroTo2">
+				<label for="0-2">0-2</label> <br />
+				<input type="number" id="zero-to-2" min="0" max="100" value="0" />
+			</div>
+			<div id="class">
+				<label for="choose-class">Choose class</label> <br />
+				<select name="class" id="choose-class">
+					<option value="1">Economy</option>
+				</select>
+			</div>
+		</div>
+		<input type="submit" value="Search" />
+	</form>
+</body>
+</html>

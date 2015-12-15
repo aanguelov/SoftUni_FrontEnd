@@ -1,0 +1,90 @@
+#wrapper {
+	width: 645px;
+	height: 325px;
+	padding: 15px;
+	background-color: #e5e5ff;
+}
+
+#forms > form {
+	width: 300px;
+	height: 225px;
+	padding: 10px;
+	display: inline-block;
+}
+
+#forms > #login > p {
+	margin: 0px;
+	padding-top: 5px;
+	display: inline-block;
+}
+
+#forms > form > header {
+	margin-bottom: 5px;
+	font-size: 12px; 
+	font-weight: bolder;
+	text-transform: uppercase;
+}
+
+#login, a, input[value="Login"] {
+	color: white;
+	background-color: #234465;
+}
+
+#login, input[type="button"], a {
+	float: right;
+	clear: both;
+}
+
+#forms > #login > p, a {
+	font-size: 12px;
+	font-family: sans-serif;
+}
+
+.register {
+	color: #234465;
+}
+
+.remember {
+	margin-left: 5px;
+	vertical-align: top;
+}
+
+a {
+	margin: 10px 5px;
+}
+
+input[value="Login"] {
+	width: 110px;
+	height: 30px;
+	border: 2px solid #ffa000;
+}
+
+input[value="Register"] {
+	width: 130px;
+	height: 30px;
+	color: #234465;
+	background-color: #e5e5ff;
+	border: 2px solid #234465;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+	margin-bottom: 10px;
+	padding-left: 10px;
+	width: 286px; 
+	height: 30px;
+}
+
+input[type="checkbox"] {
+	width: 17px;
+	height: 17px;
+	margin: 0px;
+}
+
+h1 {
+	margin: 0px;
+	color: #234465;
+	font-size: 25px;
+}
+
+
+
