@@ -1,0 +1,15 @@
+#search {
+	height: 30px;
+	margin-top: 10px;
+}
+
+#search-wp {
+	width: 150px;
+	height: 30px;
+	vertical-align: top;
+}
+
+#search > label {
+	vertical-align: bottom;
+}
+
