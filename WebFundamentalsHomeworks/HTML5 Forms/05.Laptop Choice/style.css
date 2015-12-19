@@ -1,0 +1,76 @@
+body{
+    font-family: Tahoma, sans-serif;
+}
+
+button{
+    margin-bottom: 10px;
+    width: 162px;
+    padding: 0;
+    background-color: white;
+    border-radius: 7px;
+    border-bottom-right-radius: 0;
+    border: 1px solid lightblue;
+}
+
+#container{
+    margin:0 auto;
+    display: flex;
+}
+
+h3{
+    margin: 10px 0px 0px 0;
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    margin: 5px 0;
+    text-align: center;
+}
+
+span{
+    font-size: 0.8em;
+}
+
+#laptops{
+    width: 500px;
+    margin-right: 20px;
+}
+
+#sliders{
+    text-align: center;
+    background-color: rgba(204, 255, 255, 0.6);
+    width: 200px;
+    border: 1px solid lightblue;
+}
+
+.price {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    text-align: center;
+    background-color: #2C425A;
+    border-top-left-radius: 7px;
+    position: relative;
+    left: 60px;
+}
+
+input{
+    width: 200px;
+    margin: 0 0 10px 0;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+button:hover{
+    cursor: pointer;
+}

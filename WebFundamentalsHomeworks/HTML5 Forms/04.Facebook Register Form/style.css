@@ -1,0 +1,116 @@
+@font-face {
+	font-family: facebook;
+	src: url(FACEBOLF.OTF);
+}
+
+#wrapper {
+	width: 850px;
+	padding: 10px 15px;
+	background-color: rgb(58, 87, 149);
+	color: white;
+}
+
+#wrapper, legend {
+	text-align: center;
+}
+
+#none-important, #important {
+	text-align: left;
+}
+
+#none-important {
+	width: 295px;
+	height: 233px;
+	margin-right: 45px;
+	display: inline-block;
+}
+
+#important {
+	width: 443px;
+	display: inline-block;
+}
+
+#birth-date {
+	width: 200px;
+}
+
+input, #door-color {
+	width: 138px;
+	height: 20px;
+	border: 0px solid;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	margin-right: 5px;
+}
+
+#none-important {
+	float: left;
+	clear: both;
+}
+
+fieldset {
+	border-radius: 6px;
+}
+
+span#small-copy {
+    font-size: 1rem;
+    font-family: "Verdana"
+}
+
+h1 {
+    margin: 0px;
+    font-size: 6rem;
+    font-family: facebook;
+}
+
+h3, h5 {
+    margin: 10px;
+    font-size: 2rem;
+    font-family: "Verdana", sans-serif;
+}
+
+h5 {
+    font-size: 1.1rem;
+}
+
+input[placeholder="Nr"],
+input[placeholder="Floor"],
+input[placeholder="App Nr"] {
+	width: 80px;
+}
+
+input[type="radio"] {
+	width: 10px;
+	margin: 0px 10px;
+}
+
+input[type="radio"]:first-child {
+	margin-left: 0px;
+}
+
+input[type="reset"] {
+	width: 323px;
+	height: 50px;
+	margin-right: 47px;
+	margin-top: 10px;
+	font-size: 18px;
+	color: rgb(58, 87, 149);
+}
+
+input[type="submit"] {
+	width: 470px;
+	height: 50px;
+	margin-top: 20px;
+	font-size: 22px;
+	color: rgb(58, 87, 149);
+}
+
+p {
+	font-size: 40px;
+	font-family: "Verdana", sans-serif;
+	font-weight: bold;
+}
+
+p > span {
+	font-size: 20px;
+}

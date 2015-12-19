@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Facebook register form</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="wrapper">
+		<h1>fakebook<span id="small-copy">&reg;</span></h1>
+        <h3>Registration</h3>
+        <h5>It is safe and it will always be!</h5>
+		<div id="fields">
+			<fieldset id="none-important">
+				<legend>None-Important Information</legend>
+				<input type="text" placeholder="First Name" />
+				<input type="text" placeholder="Last Name" />
+				<input type="email" placeholder="Your Email" />
+				<input type="tel" placeholder="Phone Number" />
+				<input type="password" placeholder="Your Pasword" />
+				<input type="url" placeholder="Website" />
+				<label for="birth-date">Birthday</label> <br />
+				<input type="date" id="birth-date" name="date-of-birth" /> <br />
+				<div id="radio-buttons">
+					<input type="radio" name="gender" value="1" />Female
+					<input type="radio" name="gender" value="2" />Male
+					<input type="radio" name="gender" value="3" />Other
+				</div>
+			</fieldset>
+			<fieldset id="important">
+				<legend>Important Information *required</legend>
+				<input list="countries" name="country" placeholder="Country" />
+				<datalist id="countries" />
+					<option value="Bulgaria"></option>
+					<option value="England"></option>
+					<option value="Usa"></option>
+					<option value="France"></option>
+				</datalist>
+				<input type="text" placeholder="Village" />
+				<input type="text" placeholder="District" />
+				<input type="text" placeholder="Street" />
+				<input type="text" placeholder="Nr" />
+				<input type="text" placeholder="Floor" />
+				<input type="text" placeholder="App Nr" />
+				<div id="secrets">
+					<label for="door-color">Door Color</label> <br />
+					<input type="color" id="door-color" name="doorColor" />
+					<input type="text" placeholder="Water Meter Nr" />
+					<input list="panties" name="panties" placeholder="Aunt Panties` Size" />
+					<datalist id="panties" />
+						<option value="S"></option>
+						<option value="M"></option>
+						<option value="L"></option>
+						<option value="XXXXXXXXXXXXXXXXXL"></option>
+					</datalist>
+				</div>
+				<label for="more-info">More Personal Information</label> <br />
+				<textarea name="info" id="more-info" cols="60" rows="5" placeholder="Give Us More Information!!!"></textarea>
+			</fieldset>
+		</div>
+		<div id="buttons">
+			<input type="reset" value="Clear Form" />
+			<input type="submit" value="Register" />
+		</div>
+	</div>
+</body>
+</html>
