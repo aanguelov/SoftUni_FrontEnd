@@ -1,0 +1,90 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+header, a {
+    background-color: #234465;
+    color: white;
+    font-family: "Verdana", sans-serif;
+    font-size: 12px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+nav {
+	height: 60px;
+}
+
+a, #about, #training {
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#about:hover ul, #training:hover ul {
+	position: absolute;
+	display: block;
+}
+
+#softuni-logo, #container {
+	display: inline-block;
+}
+
+#wrapper {
+	width: 90%;
+	height: 60px;
+	padding: 20px;
+	margin: 0 auto;
+}
+
+#magnifier {
+	width: 18px;
+	height: 20px;
+	padding-left: 2px;
+	border-left: 1px solid #eee;
+	position: relative;
+	left: -28px;
+	bottom: -6px;
+}
+
+#notifications, #user-menu, #softuni-logo, #container, #main li {
+	display: inline-block;
+}
+
+#about-drop > li, #courses-menu > li {
+	display: block;
+	margin-bottom: 10px;
+}
+
+#upper, #main {
+	margin-bottom: 0;
+	display: block;
+	float: right;
+	clear: both;
+}
+
+#container {
+	float: right;
+	clear: both;
+}
+
+#about-drop, #courses-menu {
+	display: none;
+}
+
+#user-menu {
+	padding-left: 20px;
+}
+
+#main > li {
+	padding: 0 20px;
+}
+
+input[name="search-field"] {
+	height: 22px;
+	padding-left: 4px;
+	border: none;
+	border-radius: 3px;
+}
