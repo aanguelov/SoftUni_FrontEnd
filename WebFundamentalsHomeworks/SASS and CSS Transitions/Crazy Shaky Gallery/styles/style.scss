@@ -1,0 +1,83 @@
+body {
+  margin: 0 auto;
+  width: 960px;
+  background-color: #ccc;
+
+  #container {
+    margin: 0 auto;
+    width: 60%;
+    background-color: #ddd;
+    border-radius: 10px;
+    padding: 10px 30px;
+    text-align: center;
+
+    .picture {
+      height: 106px;
+      display: inline-block;
+      border: 2px solid white;
+    }
+
+    .picture:hover {
+      cursor: pointer;
+      position: fixed;
+      animation-name: shake;
+      animation-delay: 0.0s;
+      animation-duration: 4.00s;
+      animation-iteration-count: initial;
+      animation-timing-function: linear;
+    }
+
+    @keyframes shake {
+      0%, 9% {
+        transform: rotate(2deg)
+      }
+
+      2%, 8% {
+        transform: rotate(-2deg)
+      }
+
+      3%, 5%, 7% {
+        transform: rotate(2deg)
+      }
+
+      4%, 6% {
+        transform: rotate(-2deg)
+      }
+
+      10% {
+        left: 600px;
+        top: 200px;
+        transform: scale(2);
+      }
+
+      30% {
+        left: 600px;
+        top: 200px;
+        transform: scale(2);
+      }
+
+      45% {
+        transform: scale(2) rotate(120deg);
+        left: 600px;
+        top: 200px;
+      }
+
+      60% {
+        transform: scale(2) rotate(240deg);
+        left: 600px;
+        top: 200px;
+      }
+
+      75% {
+        transform: scale(2) rotate(360deg);
+        left: 600px;
+        top: 200px;
+      }
+
+      100% {
+        transform: scale(1) rotate(360deg);
+        position: absolute;
+      }
+    }
+  }
+}
