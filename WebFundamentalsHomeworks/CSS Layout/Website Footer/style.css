@@ -1,0 +1,84 @@
+body, div, section, ul, li, button, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+	background-color: #234465;
+	color: #eee;
+	padding: 20px 20px;
+	display: block;
+}
+
+section {
+	display: inline-table;
+	width: 220px;
+	vertical-align: top;
+}
+
+#container {
+	margin: 0 auto;
+	width: 85%;
+}
+
+#buttons > a {
+	display: block;
+}
+
+#buttons > a > button {
+	width: 150px;
+	height: 40px;
+	background-color: #234465;
+	margin-bottom: 10px;
+	border: 2px solid #ffa000;
+	color: #eee;
+}
+
+h3 {
+	font-size: 12px;
+	font-family: arial, sans-serif;
+	text-transform: uppercase;
+	font-weight: bolder;
+	color: #ffa000;
+	margin-bottom: 10px;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	margin-bottom: 5px;
+}
+
+section > ul > li > a {
+	text-decoration: none;
+	font-size: 14px;
+	color: #eee;
+}
+
+#social-media-buttons > a > button {
+	width: 32px;
+	height: 32px;
+	background-image: url(mini-social-icons.png);
+	background-color: #1a334c;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+#twitter {
+	background-position: -90px -7px;
+}
+
+#facebook {
+	background-position: -6px -7px;
+}
+
+#google {
+	background-position: -48px -7px;
+}
+
+#fb {
+	float: right;
+	clear: both;
+}
