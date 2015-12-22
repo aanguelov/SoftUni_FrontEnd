@@ -1,0 +1,213 @@
+@mixin GetGradient($path, $direction, $start, $end) {
+  @if $path == 'linear' {
+    background: linear-gradient(to $direction, $start, $end);
+  }
+  @else {
+    background: radial-gradient($start, $end);
+  }
+}
+
+$center-margin: 0 auto;
+$border-thick: 3px solid #ccc;
+
+
+body {
+  width: 960px;
+  margin: $center-margin;
+  background: linear-gradient(to bottom, #aaa, #fff);
+  font-family: Tahoma, sans-serif;
+  color: #aaa;
+
+  #wrapper > header {
+    border: $border-thick;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #wrapper {
+    width: 75%;
+    margin: $center-margin;
+    background-color: white;
+    border: $border-thick;
+    padding: 15px;
+
+    article, .linear, .radial, footer {
+      padding: 10px;
+      text-align: center;
+      border: $border-thick;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      h3 {
+        font-size: 18px;
+        font-weight: 900;
+        text-decoration: underline;
+      }
+      ul {
+        padding: 0;
+        list-style-type: none;
+        a {
+          text-decoration: none;
+          color: #aaa;
+          font-size: 12px;
+        }
+      }
+    }
+
+    header {
+
+        ul {
+          padding: 0;
+          list-style-type: none;
+
+          li {
+            display: inline-block;
+            margin: 0 20px;
+            width: 80px;
+            height: 30px;
+            border: $border-thick;
+
+            a {
+              font-size: 12px;
+              font-weight: bold;
+              text-decoration: none;
+              color: #bbb;
+              vertical-align: middle;
+            }
+
+          }
+
+          li:hover {
+            background: linear-gradient(to bottom, #aaa, #fff);
+
+            a {
+              color: white;
+            }
+          }
+
+        }
+
+      h1 {
+        margin: 10px 0;
+      }
+    }
+
+    .linear, .radial {
+      font-size: 10px;
+
+      article {
+        border: 1px solid #bbb;
+      }
+
+      #linear, #radial {
+        margin: 0;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+        text-decoration: underline;
+      }
+
+      .innerContainer {
+        font-size: 0;
+
+        div {
+          width: 108px;
+          height: 108px;
+          border-radius: 15px;
+          display: inline-block;
+        }
+      }
+    }
+
+    .linear {
+      article:nth-child(2) {
+        .purple {
+          @include GetGradient(linear, bottom, purple, #fff)
+        }
+        .blue {
+          @include GetGradient(linear, bottom, blue, #fff)
+        }
+        .green {
+          @include GetGradient(linear, bottom, green, #fff)
+        }
+        .yellow {
+          @include GetGradient(linear, bottom, yellow, #fff)
+        }
+        .orange {
+          @include GetGradient(linear, bottom, orange, #fff)
+        }
+        .red {
+          @include GetGradient(linear, bottom, red, #fff)
+        }
+      }
+
+      article:nth-child(3) {
+        .purple {
+          @include GetGradient(linear, right, purple, #fff)
+        }
+        .blue {
+          @include GetGradient(linear, right, blue, #fff)
+        }
+        .green {
+          @include GetGradient(linear, right, green, #fff)
+        }
+        .yellow {
+          @include GetGradient(linear, right, yellow, #fff)
+        }
+        .orange {
+          @include GetGradient(linear, right, orange, #fff)
+        }
+        .red {
+          @include GetGradient(linear, right, red, #fff)
+        }
+      }
+
+      article:nth-child(4) {
+        .purple {
+          @include GetGradient(linear, right bottom, purple, #fff)
+        }
+        .blue {
+          @include GetGradient(linear, right bottom, blue, #fff)
+        }
+        .green {
+          @include GetGradient(linear, right bottom, green, #fff)
+        }
+        .yellow {
+          @include GetGradient(linear, right bottom, yellow, #fff)
+        }
+        .orange {
+          @include GetGradient(linear, right bottom, orange, #fff)
+        }
+        .red {
+          @include GetGradient(linear, right bottom, red, #fff)
+        }
+      }
+    }
+
+    .radial {
+      article {
+        .purple {
+          @include GetGradient(radial, right bottom, purple, #fff)
+        }
+        .blue {
+          @include GetGradient(radial, right bottom, blue, #fff)
+        }
+        .green {
+          @include GetGradient(radial, right bottom, green, #fff)
+        }
+        .yellow {
+          @include GetGradient(radial, right bottom, yellow, #fff)
+        }
+        .orange {
+          @include GetGradient(radial, right bottom, orange, #fff)
+        }
+        .red {
+          @include GetGradient(radial, right bottom, red, #fff)
+        }
+      }
+    }
+
+  }
+
+}
