@@ -1,0 +1,162 @@
+body {
+  background-color: deepskyblue;
+  font-family: Arial, sans-serif;
+
+  #wrapper {
+    margin: 0 auto;
+    width: 60%;
+    position: relative;
+    header {
+      h1 {
+        margin: 0;
+      }
+      nav {
+        ul {
+          margin: 0;
+          margin-right: 5px;
+          list-style-type: none;
+          position: relative;
+          top: -12px;
+          li {
+            display: inline-block;
+            padding:0 5px;
+            background-color: #fff;
+            border: 1px solid blue;
+            margin-right: 10px;
+            float: right;
+            a {
+              text-decoration: none;
+              font-size: 0.7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#wrapper > header > h1 {
+  border-bottom: 2px solid blue;
+  padding-bottom: 20px;
+  a {
+    text-decoration: none;
+    img {
+      width: 35%;
+    }
+    span {
+      color: white;
+      font-size: 2rem;
+    }
+  }
+}
+
+section {
+  width: 70%;
+  margin-right: 3%;
+  vertical-align: top;
+  article {
+    font-size: 1em;
+    border: 1px solid blue;
+    background-color: #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    div {
+      p {
+        text-indent: 25px;
+        color: blue;
+      }
+    }
+  }
+}
+
+.news {
+  width: 25%;
+  border: 1px solid blue;
+  background-color: #eee;
+  div {
+    ul {
+      margin: 0;
+      padding: 10px;
+      list-style-type: none;
+      li {
+        margin-bottom: 10px;
+        display: inline-block;
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+section, .news {
+  display: inline-table;
+}
+
+footer {
+  text-align: center;
+  border: 1px solid blue;
+  background-color: #eee;
+  vertical-align: bottom;
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 961px) {
+  font-size: 2rem;
+}
+
+@media only screen and (min-width: 781px) and (max-width: 960px) {
+  #wrapper {
+    width: 100%;
+  }
+
+  #wrapper header > h1 > a > span {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (min-width: 641px) and (max-width: 780px) {
+  #wrapper, .news, section {
+    width: 100%;
+  }
+
+  #wrapper header > h1 > a > span {
+    font-size: 1.25rem;
+  }
+
+  .news > div > ul > li {
+    width: 24%;
+    vertical-align: top;
+    a {
+      font-size: 0.6rem;
+      text-align: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  #wrapper, .news, section {
+    width: 100%;
+  }
+
+  #wrapper header > h1 > a {
+    text-align: center;
+    img, span {
+      margin: 0 auto;
+      display: block;
+      width: 60%;
+      font-size: 1.25rem;
+    }
+  }
+
+  #wrapper header > nav {
+    ul {
+      li {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
