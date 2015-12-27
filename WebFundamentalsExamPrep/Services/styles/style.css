@@ -1,0 +1,42 @@
+@font-face {
+  font-family: customFont;
+  src: url(../Resources/OpenSans-ExtraBold.ttf); }
+#wrapper {
+  font-family: customFont, Helvetica, sans-serif;
+  background-color: #F0F0E8;
+  padding: 20px; }
+  #wrapper header {
+    text-align: center;
+    margin-bottom: 30px; }
+    #wrapper header h1 {
+      font-size: 56px;
+      color: #009288; }
+    #wrapper header p {
+      color: #7F8287;
+      font-size: 30px;
+      margin-bottom: 10px; }
+    #wrapper header div {
+      color: #7F8287;
+      font-weight: lighter;
+      width: 100%;
+      font-size: 18px; }
+
+#wrapper section {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+  #wrapper section article {
+    width: 220px;
+    text-align: center;
+    color: #7F8287;
+    cursor: pointer; }
+    #wrapper section article p {
+      font-weight: lighter;
+      font-size: 12px;
+      line-height: 30px; }
+  #wrapper section article:hover {
+    background-color: #fff;
+    border-left: 5px solid #009288; }
+
+/*# sourceMappingURL=style.css.map */
