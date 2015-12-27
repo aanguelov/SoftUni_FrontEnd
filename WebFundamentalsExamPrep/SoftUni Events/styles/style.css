@@ -1,0 +1,100 @@
+@font-face {
+  font-family: headerAndNav;
+  src: url(../Resources/ThisNight.ttf); }
+@font-face {
+  font-family: bodyAndFooter;
+  src: url(../Resources/LDFComicSans.ttf); }
+body {
+  margin: 0;
+  background-color: #222; }
+
+#wrapper {
+  width: 960px;
+  margin: 0 auto;
+  background-color: #fff; }
+  #wrapper header {
+    padding: 10px 0; }
+  #wrapper header, #wrapper footer {
+    background-color: #234465;
+    text-align: center;
+    color: #fff; }
+    #wrapper header h1, #wrapper footer h1 {
+      font-family: headerAndNav, Helvetica, sans-serif;
+      font-size: 80px;
+      margin: 0;
+      cursor: pointer; }
+    #wrapper header h1:hover, #wrapper footer h1:hover {
+      color: #FF9C00; }
+  #wrapper main {
+    text-align: center; }
+    #wrapper main nav {
+      font-family: headerAndNav, Helvetica, sans-serif; }
+      #wrapper main nav ul {
+        list-style-type: none;
+        text-align: center; }
+        #wrapper main nav ul li {
+          display: inline-block;
+          margin: 0 10px;
+          cursor: pointer;
+          color: #234465;
+          font-weight: bold; }
+        #wrapper main nav ul #events {
+          background-color: #234465;
+          color: #fff;
+          padding: 5px 10px; }
+        #wrapper main nav ul li:hover, #wrapper main nav ul #events:hover {
+          color: #FF9C00; }
+    #wrapper main .events {
+      width: 33%;
+      display: inline-block;
+      font-family: bodyAndFooter, Arial, sans-serif;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      box-shadow: 5px 5px 5px #234465;
+      padding: 5px;
+      margin: 0 5px;
+      margin-bottom: 10px;
+      text-align: left; }
+      #wrapper main .events header {
+        padding: 5px 0;
+        margin-bottom: 5px;
+        font-size: 170%;
+        text-shadow: 2px 2px 1px #FF9C00; }
+      #wrapper main .events img {
+        width: 100%;
+        cursor: pointer; }
+      #wrapper main .events #Hallo {
+        height: 117px; }
+      #wrapper main .events p {
+        font-size: 12px;
+        margin: 5px 0; }
+      #wrapper main .events .created {
+        font-style: italic; }
+  #wrapper footer {
+    margin-top: 10px;
+    font-family: bodyAndFooter, Arial, sans-serif;
+    text-align: center; }
+    #wrapper footer nav {
+      padding: 15px;
+      border-bottom: 1px solid #aaa; }
+      #wrapper footer nav ul {
+        margin: 0;
+        list-style-type: none;
+        text-align: center; }
+        #wrapper footer nav ul li {
+          display: inline-block;
+          cursor: pointer;
+          padding: 5px 10px; }
+        #wrapper footer nav ul li:hover {
+          background-color: #FF9C00;
+          color: #234465; }
+    #wrapper footer p {
+      width: 100%;
+      height: 100px;
+      font-size: 12px;
+      line-height: 12px;
+      cursor: pointer; }
+    #wrapper footer p:hover {
+      color: #FF9C00; }
+
+/*# sourceMappingURL=style.css.map */
