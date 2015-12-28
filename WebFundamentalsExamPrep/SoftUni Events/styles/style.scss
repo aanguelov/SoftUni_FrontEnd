@@ -8,6 +8,10 @@
   src: url(../Resources/LDFComicSans.ttf);
 }
 
+$blueColor: #234465;
+$yellowColor: #FF9C00;
+$whiteColor: #fff;
+
 body {
   margin: 0;
   background-color: #222;
@@ -16,14 +20,14 @@ body {
 #wrapper {
   width: 960px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: $whiteColor;
   header {
     padding: 10px 0;
   }
   header, footer {
-    background-color: #234465;
+    background-color: $blueColor;
     text-align: center;
-    color: #fff;
+    color: $whiteColor;
     h1 {
       font-family: headerAndNav, Helvetica, sans-serif;
       font-size: 80px;
@@ -31,7 +35,7 @@ body {
       cursor: pointer;
     }
     h1:hover {
-      color: #FF9C00;
+      color: $yellowColor;
     }
   }
   main {
@@ -45,16 +49,16 @@ body {
           display: inline-block;
           margin: 0 10px;
           cursor: pointer;
-          color: #234465;
+          color: $blueColor;
           font-weight: bold;
         }
         #events {
-          background-color: #234465;
-          color: #fff;
+          background-color: $blueColor;
+          color: $whiteColor;
           padding: 5px 10px;
         }
         li:hover, #events:hover {
-          color: #FF9C00;
+          color: $yellowColor;
         }
 
       }
@@ -65,7 +69,7 @@ body {
       font-family: bodyAndFooter, Arial, sans-serif;
       border: 1px solid #eee;
       border-radius: 10px;
-      box-shadow: 5px 5px 5px #234465;
+      box-shadow: 5px 5px 5px $blueColor;
       padding: 5px;
       margin: 0 5px;
       margin-bottom: 10px;
@@ -74,7 +78,7 @@ body {
         padding: 5px 0;
         margin-bottom: 5px;
         font-size: 170%;
-        text-shadow: 2px 2px 1px #FF9C00;
+        text-shadow: 2px 2px 1px $yellowColor;
       }
       img {
         width: 100%;
@@ -110,8 +114,8 @@ body {
           padding: 5px 10px;
         }
         li:hover {
-          background-color: #FF9C00;
-          color: #234465;
+          background-color: $yellowColor;
+          color: $blueColor;
         }
       }
     }
@@ -123,7 +127,7 @@ body {
       cursor: pointer;
     }
     p:hover {
-      color: #FF9C00;
+      color: $yellowColor;
     }
   }
 }
