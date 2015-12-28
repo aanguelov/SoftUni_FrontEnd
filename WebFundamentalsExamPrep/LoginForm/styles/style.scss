@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lobster'), local('Lobster-Regular'), url(http://fonts.gstatic.com/s/lobster/v15/cycBf3mfbGkh66G5NhszPQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+body {
+  background-color: #222222;
+}
+
+#wrapper {
+  width: 750px;
+  height: 320px;
+  margin: 0 auto;
+  background-image: url(../Resources/background.png);
+  border-left: 3px solid #E63131;
+  border-right: 3px solid #E63131;
+  border-top: 5px solid #738487;
+  padding: 20px 10px;
+  section {
+    background-color: #333333;
+    padding: 15px 8px;
+    height: 270px;
+    header {
+      text-align: center;
+      background-color: #679966;
+      color: #D7E5EE;
+      font-family: Lobster;
+      font-size: 170%;
+      margin-bottom: 5px;
+    }
+    #advertisement, #login {
+      width: 350px;
+      height: 200px;
+      display: inline-table;
+      font-family: sans-serif;
+    }
+    #advertisement {
+      background-color: #232323;
+      p {
+        text-align: center;
+        color: #D7E5EE;
+      }
+      #fire {
+        margin-top: 10px;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 20px;
+        span {
+          font-size: 50px;
+        }
+      }
+    }
+    #login {
+      float: right;
+      padding: 0 10px;
+      h4 {
+        text-align: center;
+        color: #D7E5EE;
+        margin: 0 0 20px 0;
+      }
+      p {
+        margin-bottom: 15px;
+        span {
+          background-color: #679966;
+          color: #555555;
+          padding: 10px;
+          border-radius: 2px 0 0 2px;
+        }
+        input {
+          height: 34px;
+          border: none;
+          border-radius: 0 2px 2px 0;
+          width: 85%;
+          padding-left: 15px;
+        }
+        input:focus {
+          box-shadow: 0 0 1px 1px #66AFE9;
+        }
+      }
+      input[type="submit"] {
+        width: 96%;
+        height: 34px;
+        color: #D7E5EE;
+        background-color: #232323;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+      input[type="submit"]:focus {
+        background-color: #679966;
+      }
+    }
+  }
+}
