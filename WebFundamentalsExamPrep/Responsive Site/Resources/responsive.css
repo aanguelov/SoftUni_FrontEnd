@@ -1,0 +1,115 @@
+@media all and (min-width: 960px) {
+  #sidebar #social {
+    float: none; }
+
+  footer {
+    width: 95%; } }
+@media all and (min-width: 760px) and (max-width: 959px) {
+  header nav, #sidebar #social {
+    float: none; }
+
+  #container {
+    width: 100%; }
+
+  #content {
+    width: 55%;
+    margin-right: 10%; }
+    #content article:nth-of-type(2) {
+      display: none; }
+
+  #sidebar {
+    width: 30%; }
+    #sidebar section {
+      margin: 0; }
+
+  #latest h3 {
+    display: none; }
+  #latest ul li {
+    display: none; }
+  #latest ul li:last-of-type {
+    display: inline-block;
+    margin-bottom: 30px; }
+
+  #categories, #social {
+    display: inline-block; }
+    #categories ul, #social ul {
+      display: none; }
+
+  #sidebar #categories, #sidebar #social {
+    width: 45%;
+    height: 30px;
+    margin-top: 30px; }
+
+  footer {
+    width: 95%; } }
+@media all and (min-width: 540px) and (max-width: 759px) {
+  #container {
+    width: 100%; }
+    #container header > h1, #container header > nav {
+      float: none;
+      text-align: left; }
+    #container header h1 {
+      height: 40px; }
+    #container header nav li {
+      width: 20%;
+      margin-left: 0; }
+    #container #content {
+      margin: 0;
+      width: 80%; }
+      #container #content .postinfo {
+        width: 100%; }
+        #container #content .postinfo li {
+          margin-right: 10px;
+          width: 30%; }
+    #container #sidebar {
+      width: 100%; }
+      #container #sidebar #about {
+        width: 90%; }
+      #container #sidebar #categories {
+        margin: 0 20px 20px 0; }
+      #container #sidebar #search {
+        display: inline-block;
+        width: 100%; }
+        #container #sidebar #search #searchbar {
+          width: 80%; }
+      #container #sidebar #latest, #container #sidebar #social {
+        margin: 0;
+        height: 250px; }
+
+  footer {
+    width: 95%; } }
+@media all and (max-width: 539px) {
+  #container {
+    width: 100%; }
+
+  header nav {
+    float: left;
+    text-align: left;
+    width: 85%;
+    margin-bottom: 40px; }
+    header nav ul li {
+      margin: 0;
+      width: 45%; }
+
+  header h1 {
+    margin-bottom: 30px; }
+
+  #content {
+    width: 90%; }
+
+  #sidebar {
+    width: 90%; }
+
+  #sidebar #search {
+    display: inline-block;
+    width: 100%; }
+    #sidebar #search #searchbar {
+      width: 80%; }
+
+  #sidebar #categories, #sidebar #social {
+    width: 45%; }
+
+  footer {
+    width: 90%; } }
+
+/*# sourceMappingURL=responsive.css.map */
