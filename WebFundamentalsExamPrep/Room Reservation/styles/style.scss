@@ -1,0 +1,126 @@
+#wrapper {
+  font-family: Tahoma, Helvetica, sans-serif;
+  width: 800px;
+  height: 95vh;
+  margin: 0 auto;
+  background-color: #EBEBEB;
+
+  header {
+    background-color: #F1F1F1;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 28px;
+    color: #339EE2;
+    padding: 20px 15px;
+    border-bottom: 1px dashed #C1C1C1;
+  }
+  section {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 15px;
+    border-bottom: 1px dashed #C1C1C1;
+    #info {
+      width: 77%;
+      display: inline-table;
+      p {
+        font-size: 13px;
+      }
+    }
+    #searchSection {
+      width: 22%;
+      display: inline-table;
+      p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      input {
+        border: 1px solid #C9C9C9;
+        border-radius: 3px;
+        width: 100%;
+        height: 35px;
+      }
+      button {
+        border: none;
+        position: relative;
+        padding: 0;
+        width: 25px;
+        height: 25px;
+        top: -30px;
+        left: 125px;
+      }
+    }
+  }
+
+  #reservation {
+    #personal {
+      width: 20%;
+      display: inline-table;
+      margin-right: 4%;
+      input {
+        border: 1px solid #C9C9C9;
+        border-radius: 3px;
+        width: 100%;
+        height: 35px;
+        margin-bottom: 10px;
+        padding-left: 5px;
+      }
+    }
+    #request {
+      width: 75%;
+      display: inline-table;
+      label {
+        font-weight: 100;
+        margin: 0;
+      }
+      #rooms {
+        font-size: 13px;
+        display: flex;
+        margin-bottom: 20px;
+        #select {
+          width: 70%;
+          margin-right: 4%;
+        }
+        #number {
+          width: 25%;
+        }
+        #roomNumber, #roomsCount {
+          width: 100%;
+          border: 1px solid #C9C9C9;
+          height: 35px;
+          border-radius: 3px;
+          padding-left: 5px;
+        }
+      }
+      #check {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        font-size: 13px;
+        #in, #out {
+          width: 45%;
+          #check-in, #check-out {
+            width: 100%;
+            border: 1px solid #C9C9C9;
+            height: 35px;
+            border-radius: 3px;
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    text-align: end;
+    padding: 30px 40px;
+    input {
+      width: 160px;
+      height: 30px;
+      color: #fff;
+      font-weight: bold;
+      background-color: #32A2E4;
+      border: none;
+      border-radius: 3px;
+    }
+  }
+}

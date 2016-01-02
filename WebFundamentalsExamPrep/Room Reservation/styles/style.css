@@ -1,0 +1,102 @@
+#wrapper {
+  font-family: Tahoma, Helvetica, sans-serif;
+  width: 800px;
+  height: 95vh;
+  margin: 0 auto;
+  background-color: #EBEBEB; }
+  #wrapper header {
+    background-color: #F1F1F1;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 28px;
+    color: #339EE2;
+    padding: 20px 15px;
+    border-bottom: 1px dashed #C1C1C1; }
+  #wrapper section {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 15px;
+    border-bottom: 1px dashed #C1C1C1; }
+    #wrapper section #info {
+      width: 77%;
+      display: inline-table; }
+      #wrapper section #info p {
+        font-size: 13px; }
+    #wrapper section #searchSection {
+      width: 22%;
+      display: inline-table; }
+      #wrapper section #searchSection p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: bold; }
+      #wrapper section #searchSection input {
+        border: 1px solid #C9C9C9;
+        border-radius: 3px;
+        width: 100%;
+        height: 35px; }
+      #wrapper section #searchSection button {
+        border: none;
+        position: relative;
+        padding: 0;
+        width: 25px;
+        height: 25px;
+        top: -30px;
+        left: 125px; }
+  #wrapper #reservation #personal {
+    width: 20%;
+    display: inline-table;
+    margin-right: 4%; }
+    #wrapper #reservation #personal input {
+      border: 1px solid #C9C9C9;
+      border-radius: 3px;
+      width: 100%;
+      height: 35px;
+      margin-bottom: 10px;
+      padding-left: 5px; }
+  #wrapper #reservation #request {
+    width: 75%;
+    display: inline-table; }
+    #wrapper #reservation #request label {
+      font-weight: 100;
+      margin: 0; }
+    #wrapper #reservation #request #rooms {
+      font-size: 13px;
+      display: flex;
+      margin-bottom: 20px; }
+      #wrapper #reservation #request #rooms #select {
+        width: 70%;
+        margin-right: 4%; }
+      #wrapper #reservation #request #rooms #number {
+        width: 25%; }
+      #wrapper #reservation #request #rooms #roomNumber, #wrapper #reservation #request #rooms #roomsCount {
+        width: 100%;
+        border: 1px solid #C9C9C9;
+        height: 35px;
+        border-radius: 3px;
+        padding-left: 5px; }
+    #wrapper #reservation #request #check {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      font-size: 13px; }
+      #wrapper #reservation #request #check #in, #wrapper #reservation #request #check #out {
+        width: 45%; }
+        #wrapper #reservation #request #check #in #check-in, #wrapper #reservation #request #check #in #check-out, #wrapper #reservation #request #check #out #check-in, #wrapper #reservation #request #check #out #check-out {
+          width: 100%;
+          border: 1px solid #C9C9C9;
+          height: 35px;
+          border-radius: 3px;
+          padding-left: 10px; }
+  #wrapper footer {
+    text-align: end;
+    padding: 30px 40px; }
+    #wrapper footer input {
+      width: 160px;
+      height: 30px;
+      color: #fff;
+      font-weight: bold;
+      background-color: #32A2E4;
+      border: none;
+      border-radius: 3px; }
+
+/*# sourceMappingURL=style.css.map */
