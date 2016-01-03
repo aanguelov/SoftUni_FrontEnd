@@ -1,0 +1,16 @@
+Paragliding
+Skydiving
+Climbing
+About Us
+
+Personal Info  
+Enter your full name
+Enter a valid e-mail
+Enter a phone number
+
+Flight Info
+Are flying for first time?
+Yes
+No
+Choose Destination
+Choose Date

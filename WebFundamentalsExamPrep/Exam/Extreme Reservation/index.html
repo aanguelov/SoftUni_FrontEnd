@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Extreme Reservation</title>
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <ul>
+                <li><img src="Resources/Images/paraglider-icon.png" alt="">Paragliding</li>
+                <li><img src="Resources/Images/sky-diver.png" alt="">Skydiving</li>
+                <li><img src="Resources/Images/climbing.png" alt="">Climbing</li>
+                <li><img src="Resources/Images/about-us.png" alt="">About Us</li>
+            </ul>
+        </header>
+        <form action="">
+            <fieldset>
+                <legend>Personal Info</legend>
+                <input type="text" placeholder="Enter your full name" />
+                <input type="text" placeholder="Enter a valid e-mail" />
+                <input type="text" placeholder="Enter a phone number" />
+            </fieldset>
+            <fieldset>
+                <legend>Flight Info</legend>
+                <p>Are flying for first time?</p>
+                <input type="radio" value="1" /> Yes
+                <input type="radio" value="2" /> No
+                <p>Choose Destination</p>
+                <select>
+                    <optgroup label="Bulgaria">
+                        <option value="dobrostan">Dobrostan</option>
+                        <option value="sopot">Sopot</option>
+                        <option value="sofia">Sofia</option>
+                        <option value="bourgass">Bourgass</option>
+                    </optgroup>
+                    <optgroup>
+                        <option value="nepal">Nepal</option>
+                        <option value="turkey">Turkey</option>
+                        <option value="france">France</option>
+                    </optgroup>
+                </select>
+                <p>Choose Date</p>
+                <input type="date" />
+            </fieldset>
+        </form>
+        <footer>
+            <button>Clear</button>
+            <button>Send</button>
+        </footer>
+    </div>
+</body>
+</html>

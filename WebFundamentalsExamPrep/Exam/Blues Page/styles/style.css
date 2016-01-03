@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "Ricks American NF";
+  src: url("../Resources/Fonts/RicksAmericanNF.ttf"); }
+#wrapper {
+  background-color: #000000;
+  margin: 0 auto; }
+  #wrapper header {
+    width: 960px;
+    margin: 0 auto;
+    color: #FFA200;
+    font-family: "Ricks American NF";
+    text-transform: uppercase;
+    text-align: center; }
+    #wrapper header h1 {
+      font-size: 60px;
+      word-spacing: 20px;
+      letter-spacing: 15px;
+      margin: 20px 0; }
+    #wrapper header nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-around;
+      padding: 0; }
+      #wrapper header nav ul li {
+        font-size: 30px;
+        letter-spacing: 5px;
+        cursor: pointer;
+        padding: 5px 40px;
+        border-radius: 20px; }
+      #wrapper header nav ul li:hover {
+        background-color: #FFA200;
+        color: black; }
+  #wrapper main {
+    background-color: #3C3C3C;
+    width: 960px;
+    margin: 0 auto;
+    display: flex;
+    padding-bottom: 20px; }
+    #wrapper main section {
+      width: 65%; }
+      #wrapper main section article {
+        width: 90%;
+        margin: 0 auto;
+        color: #FFA200;
+        font-family: sans-serif; }
+        #wrapper main section article h3 {
+          font-size: 23px;
+          text-transform: uppercase;
+          text-align: center;
+          margin-bottom: 0; }
+        #wrapper main section article div {
+          display: flex; }
+          #wrapper main section article div img {
+            width: 49%; }
+          #wrapper main section article div p {
+            width: 49%;
+            margin: 0;
+            text-indent: 20px;
+            padding-left: 2px;
+            font-size: 16px;
+            text-align: justify; }
+            #wrapper main section article div p span {
+              font-weight: bold;
+              font-style: italic; }
+    #wrapper main aside {
+      width: 30%;
+      text-align: right;
+      font-family: sans-serif; }
+      #wrapper main aside #upper {
+        cursor: pointer;
+        padding-top: 25px; }
+        #wrapper main aside #upper img {
+          width: 90%;
+          border: 1px solid #FFA200;
+          border-radius: 10px; }
+        #wrapper main aside #upper p {
+          font-weight: bold;
+          text-align: center;
+          color: #FFA200;
+          position: relative;
+          top: -40px;
+          background-color: rgba(60, 60, 60, 0.8);
+          padding-left: 40px; }
+      #wrapper main aside #lower {
+        cursor: pointer; }
+        #wrapper main aside #lower img {
+          width: 90%;
+          border: 1px solid #FFA200;
+          border-radius: 10px; }
+        #wrapper main aside #lower p {
+          font-weight: bold;
+          text-align: center;
+          color: #FFA200;
+          position: relative;
+          top: -40px;
+          background-color: rgba(60, 60, 60, 0.8);
+          padding-left: 40px; }
+  #wrapper footer {
+    width: 960px;
+    height: 50px;
+    margin: 0 auto;
+    color: #FFA200;
+    text-align: center;
+    padding-top: 10px;
+    font-family: sans-serif; }
+
+/*# sourceMappingURL=style.css.map */
