@@ -1,0 +1,13 @@
+table, tr, td {
+    border: 1px solid black;
+}
+
+.button {
+    padding: 1em;
+    text-align: center;
+}
+
+input, .result, .resultColumn {
+    padding: 3em;
+
+}
