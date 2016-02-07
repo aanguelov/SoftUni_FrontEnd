@@ -1,0 +1,22 @@
+form {
+    width: 360px;
+    background-color: antiquewhite;
+}
+
+form > h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+form > div {
+    width: 50%;
+    margin: 0 auto;
+}
+
+form > div > p {
+    margin: 5px;
+}
+
+#invoiceDetails {
+    visibility: hidden;
+}
