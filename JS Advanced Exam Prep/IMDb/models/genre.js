@@ -15,7 +15,11 @@ var imdb = imdb || {};
     Genre.prototype.deleteMovie = function deleteMovie(movie) {
         var index = this._movies.indexOf(movie);
 
-        deleteByIndex(index);
+        if (index !== -1) {
+            this._movies.splice(index, 1);
+        }else {
+            console.error('Movie not present in collection!')
+        }
     };
 
     Genre.prototype.deleteMovieById = function deleteMovieById(id) {
@@ -27,20 +31,24 @@ var imdb = imdb || {};
             }
         }
 
-        deleteByIndex(index);
+        if (index !== -1) {
+            this._movies.splice(index, 1);
+        }else {
+            console.error('Movie not present in collection!')
+        }
     };
 
     Genre.prototype.getMovies = function getMovies() {
         return this._movies;
     };
 
-    function deleteByIndex(index) {
-        if (index !== -1) {
-            this._movies.splice(index, 1);
-        }else {
-            console.error('Movie not present in collection!')
-        }
-    }
+    //function deleteByIndex(index) {
+    //    if (index !== -1) {
+    //        this._movies.splice(index, 1);
+    //    }else {
+    //        console.error('Movie not present in collection!')
+    //    }
+    //}
 
     scope.getGenre = function(name) {
         return new Genre(name);

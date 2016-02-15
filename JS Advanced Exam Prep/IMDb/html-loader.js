@@ -43,6 +43,11 @@ var imdb = imdb || {};
 				actorsHTML = loadMovieInfo(movie);
 				detailsContainer.innerHTML = actorsHTML.outerHTML;
 				detailsContainer.setAttribute('data-movie-id', movieId);
+			}else if (ev.target.tagName === 'BUTTON') {
+				movieId = parseInt(ev.target.parentNode.getAttribute('data-id'));
+				genre.deleteMovieById(movieId);
+				var ul = moviesContainer.querySelector('ul');
+				ul.removeChild(ev.target.parentNode);
 			}else {
 				movieId = parseInt(ev.target.parentNode.getAttribute('data-id'));
 				movie = genre.getMovies().filter(function (movie) {
@@ -55,7 +60,25 @@ var imdb = imdb || {};
 			}
 		});
 
-		// Task 3 - Add event listener for delete button (delete movie button or delete review button)
+		detailsContainer.addEventListener('click', function(ev) {
+			var movieId, movie, reviewId, genreId, genre;
+
+			genreId = parseInt(this.previousElementSibling.getAttribute('data-genre-id'));
+			genre = data.filter(function (genre) {
+				return genre._id === genreId;
+			})[0];
+			if (ev.target.tagname = 'BUTTON') {
+				movieId = parseInt(this.getAttribute('data-movie-id'));
+				movie = genre.getMovies().filter(function (movie) {
+					return movie._id === movieId;
+				})[0];
+				reviewId = parseInt(ev.target.parentNode.getAttribute('data-id'));
+
+				movie.deleteReviewById(reviewId);
+				var rev = document.getElementById('reviewsDiv');
+				rev.removeChild(ev.target.parentNode);
+			}
+		})
 	}
 
 	function loadGenres(genres) {
@@ -83,6 +106,9 @@ var imdb = imdb || {};
 			liMovie.innerHTML += '<div>Rating: ' + movie.rating + '</div>';
 			liMovie.innerHTML += '<div>Actors: ' + movie._actors.length + '</div>';
 			liMovie.innerHTML += '<div>Reviews: ' + movie._reviews.length + '</div>';
+			var btn = document.createElement('button');
+			btn.innerHTML = 'Delete movie';
+			liMovie.appendChild(btn);
 			
 			moviesUl.appendChild(liMovie);
 		});
@@ -100,6 +126,7 @@ var imdb = imdb || {};
 		actorsDiv.innerHTML = '<h2>' + 'Actors' + '</h2>';
 		actors.forEach(function(actor) {
 			var liActor = document.createElement('li');
+			liActor.style.paddingLeft = '30px';
 			liActor.setAttribute('data-id', actor._id);
 
 			liActor.innerHTML = '<h4>' + actor.name + '</h4>';
@@ -109,14 +136,19 @@ var imdb = imdb || {};
 			actorsDiv.appendChild(liActor);
 		});
 
+		reviewsDiv.setAttribute('id', 'reviewsDiv');
 		reviewsDiv.innerHTML = '<h2>' + 'Reviews' + '</h2>';
 		reviews.forEach(function(review) {
 			var liReview = document.createElement('li');
+			liReview.style.paddingLeft = '30px';
 			liReview.setAttribute('data-id', review._id);
 
 			liReview.innerHTML = '<h4>' + review.author + '</h4>';
 			liReview.innerHTML += '<div><strong>Content</strong>: ' + review.content + '</div>';
 			liReview.innerHTML += '<div><strong>Date</strong>: ' + review.date + '</div>';
+			var btn = document.createElement('button');
+			btn.innerHTML = 'Delete review';
+			liReview.appendChild(btn);
 
 			reviewsDiv.appendChild(liReview);
 		});

@@ -34,7 +34,11 @@ var imdb = imdb || {};
     ShowType.prototype.deleteReview = function deleteReview(review) {
         var index = this._reviews.indexOf(review);
 
-        deleteReviewByIndex(index);
+        if (index !== -1) {
+            this._reviews.splice(index, 1);
+        }else {
+            throw new Error('No such review.');
+        }
     };
 
     ShowType.prototype.deleteReviewById = function deleteReviewById(id) {
@@ -46,16 +50,20 @@ var imdb = imdb || {};
             }
         }
 
-        deleteReviewByIndex(index);
-    };
-
-    function deleteReviewByIndex(index) {
         if (index !== -1) {
             this._reviews.splice(index, 1);
         }else {
             throw new Error('No such review.');
         }
-    }
+    };
+
+    //function deleteReviewByIndex(index) {
+    //    if (index !== -1) {
+    //        this._reviews.splice(index, 1);
+    //    }else {
+    //        throw new Error('No such review.');
+    //    }
+    //}
 
     scope._ShowType = ShowType;
 })(imdb);
