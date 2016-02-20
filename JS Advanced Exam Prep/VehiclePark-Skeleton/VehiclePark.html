@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vehicle Park</title>
+    <meta charset='utf-8' />
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        div {
+            margin: 10px;
+        }
+
+        textarea {
+            font-family: Consolas, Monospaced;
+            font-size: 12pt;
+            width: 100%;
+            overflow: auto;
+        }
+
+            textarea#input {
+                height: 320px;
+            }
+
+            textarea#output {
+                height: 500px;
+            }
+
+        button {
+            width: 250px;
+            height: 50px;
+            font-size: 15pt;
+        }
+    </style>
+    <script src='VehiclePark-Skeleton.js'></script>
+    <script>
+        function processCommands() {
+            var commands = document.getElementById('input').value;
+            var commandsArr = commands.split('\n');
+            var output = processVehicleParkCommands(commandsArr);
+            document.getElementById('output').value = output;
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        Input commands: <br />
+        <textarea id='input'>insert(type=employee;name=Angel;position=Trainer;grade=10)
+insert(type=limo;brand=GM;age=5;number-of-wheels=8;consumption=15;type-of-fuel=diesel)
+append-employee(brand=GM;name=Angel)
+insert(type=limo;brand=GM;age=5;number-of-wheels=8;consumption=15;type-of-fuel=diesel)
+append-employee(brand=GM;name=Angel)
+insert(type=limo;brand=GM;age=5;number-of-wheels=8;consumption=15;type-of-fuel=diesel)
+append-employee(brand=GM;name=Angel)
+insert(type=limo;brand=GM;age=5;number-of-wheels=8;consumption=15;type-of-fuel=diesel)
+append-employee(brand=GM;name=Angel)
+insert(type=limo;brand=GM;age=5;number-of-wheels=8;consumption=15;type-of-fuel=diesel)
+append-employee(brand=GM;name=Angel)
+list
+
+</textarea>
+    </div>
+    <div>
+        <button onclick='processCommands()'>Process Commands</button>
+    </div>
+    <div>
+        Output: <br />
+        <textarea id='output'></textarea>
+    </div>
+</body>
+
+</html>
