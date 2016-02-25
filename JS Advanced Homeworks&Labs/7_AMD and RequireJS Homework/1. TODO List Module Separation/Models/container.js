@@ -1,4 +1,4 @@
-define(['../Scripts/factory'], function(factory) {
+define(['section'], function(sec) {
     return (function() {
         var idCounter = 1;
         function Container(title) {
@@ -28,7 +28,7 @@ define(['../Scripts/factory'], function(factory) {
             button.innerHTML = 'New section';
 
             button.addEventListener('click', function(ev) {
-                var section = new factory._Section(inputText.value);
+                var section = new sec(inputText.value);
                 console.log(section);
                 innerContainer.style.border = '2px solid grey';
                 innerContainer.style.padding = '5px';
