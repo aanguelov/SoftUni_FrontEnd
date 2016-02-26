@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>ElementInsertion</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="break-line">This is the break-line element!</div>
+    </div>
+    <script>
+        var divAfter = $('<div>').text('afterDiv').css({'background-color': 'red', 'width': '20%'}),
+            divBefore = $('<div>').text('beforeDiv').css({'background-color': 'blue', 'width': '25%'});
+
+        $('#break-line').after(divAfter).before(divBefore);
+    </script>
+</body>
+</html>
