@@ -1,0 +1,23 @@
+#wrapper {
+    width: 435px;
+    display: flex;
+    margin: 0 auto;
+}
+
+#beaches {
+    width: 275px;
+    height: 185px;
+    overflow: hidden;
+}
+
+#beaches-container {
+    width: 825px;
+    height: 185px;
+    position: relative;
+    display: flex;
+}
+
+#left, #right {
+    width: 80px;
+    height: 185px;
+}
