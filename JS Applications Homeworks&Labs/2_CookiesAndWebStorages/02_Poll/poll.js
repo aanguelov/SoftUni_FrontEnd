@@ -1,6 +1,13 @@
-var timerId;
+var timerId,
+    answers;
 
 $(window).on('load', function() {
+    if (!localStorage.answers) {
+        answers = {};
+    }else {
+        answers = JSON.parse(localStorage.getItem('answers'));
+    }
+
     var time = 5 * 60,
         timerDiv = $('#timer'),
         temp = time;
@@ -18,17 +25,29 @@ $(window).on('load', function() {
 
 });
 
+$(window).unload(function() {
+    localStorage.setItem('answers', JSON.stringify(answers));
+});
+
+$('input:checkbox').change(function() {
+    var answer = $(this).parent().text().trim();
+
+    answers[answer] = $(this).attr('value');
+
+    localStorage.setItem('answers', JSON.stringify(answers));
+});
+
 $('#btn').on('click', function(){
     clearInterval(timerId);
 
-    $('input:checked').each(function(){
-        if ($(this).attr('value') === 'correct') {
-            var correct = $('<p>').text('Correct: ' + $(this).parent().text().trim());
-            $('#result').append(correct);
-        }else {
-            var incorrect = $('<p>').text('Incorrect: ' + $(this).parent().text().trim());
-            $('#result').append(incorrect);
-        }
+    var totalAnswers = JSON.parse(localStorage.getItem('answers'));
+
+    Object.keys(totalAnswers).forEach(function(key) {
+        var answerP = $('<p>').text(key + ' - ' + totalAnswers[key]);
+        $('#result').append(answerP);
     });
+
+    answers = {};
+    localStorage.setItem('answers', JSON.stringify(answers));
 });
 
