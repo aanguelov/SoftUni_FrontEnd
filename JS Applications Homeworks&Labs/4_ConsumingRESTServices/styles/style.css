@@ -1,0 +1,23 @@
+#wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+#add-a-book, .book-info {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#list-of-books > li {
+    font-size: 20px;
+}
+
+#list-of-books > li:hover {
+    color: aqua;
+    cursor: pointer;
+}
+
+.delete-button, .change-input {
+    margin-top: 10px;
+}
