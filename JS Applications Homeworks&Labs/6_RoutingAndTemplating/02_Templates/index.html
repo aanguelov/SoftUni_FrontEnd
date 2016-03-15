@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Templates</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="../libs/jquery.js"></script>
+    <script src="../libs/mustache.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <label for="name">Name</label>
+        <input type="text" id="name" />
+        <label for="job">Job Title</label>
+        <input type="text" id="job" />
+        <label for="website">Website</label>
+        <input type="text" id="website" />
+        <input type="button" value="Fill table" id="fill-button" />
+        <table id="table">
+            <tr>
+                <th>Name</th>
+                <th>Job Title</th>
+                <th>Website</th>
+            </tr>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
