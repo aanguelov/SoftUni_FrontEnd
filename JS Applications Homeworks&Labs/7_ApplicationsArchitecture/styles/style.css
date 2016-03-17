@@ -1,0 +1,18 @@
+#wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.collection-view {
+    font-size: 20px;
+}
+
+.collection-view:hover {
+    color: aqua;
+    cursor: pointer;
+}
+
+.collection-add:hover {
+    color: fuchsia;
+    cursor: pointer;
+}

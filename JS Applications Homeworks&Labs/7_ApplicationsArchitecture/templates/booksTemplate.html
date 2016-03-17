@@ -1,0 +1,14 @@
+<section class="collection-grid_holder">
+    <h2 class="collection-grid_heading">This is my books collection</h2>
+    <ul class="collection-grid">
+        <li class="collection-add" data-id="collection1">
+            <span class="create-book" id="create-book">Add Book</span>
+        </li>
+        {{#books}}
+        <li class="collection-view" data-id="{{_id}}">
+            <p class="book-title">{{title}}</p>
+            <!--<p class="book-author">Author: {{author}}</p>-->
+        </li>
+        {{/books}}
+    </ul>
+</section>

@@ -1,0 +1,11 @@
+<fieldset class="book-info">
+    <legend>Book info</legend>
+    <p>Title: <span id="{{_id}}title">{{title}}</span></p>
+    <p>Author: <span id="{{_id}}author">{{author}}</span></p>
+    <p>Isbn: <span id="{{_id}}isbn">{{isbn}}</span></p>
+    <input type="text" id="{{_id}}titleChange" class="change-input" placeholder="Title" />
+    <input type="text" id="{{_id}}authorChange" class="change-input" placeholder="Author" />
+    <input type="text" id="{{_id}}isbnChange" class="change-input" placeholder="Isbn" /> <br />
+    <input type="submit" id="{{_id}}" class="edit-button" value="Edit book" />
+    <input type="submit" id="{{_id}}-delete" class="delete-button" value="Delete book" />
+</fieldset>
