@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="StudentsPage">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>Angular Seed</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="lib/angular/angular.js"></script>
+</head>
+<body>
+    <h1>Angular Seed</h1>
+    <div id="students-section" ng-controller="StudentsController">
+        <div id="students-selector">
+            <select ng-model="student" ng-options="student.name for student in students">
+                <option value="">Select a student</option>
+            </select>
+        </div>
+        <div id="student-info" ng-show="student.value">
+            Picture:
+            <img ng-src="{{student.photo}}" />g
+            <p>School: {{student.school}}</p>
+            <p>Grade: {{student.grade}}</p>
+            <p>Teacher: {{student.teacher}}</p>
+        </div>
+    </div>
+
+<script src="js/app.js"></script>
+<script src="js/controllers/studentsController.js"></script>
+</body>
+</html>

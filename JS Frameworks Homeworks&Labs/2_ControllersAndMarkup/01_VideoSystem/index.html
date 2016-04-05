@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="videoSystem">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>Video System</title>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script src="lib/angular/angular.js"></script>
+</head>
+<body>
+    <h1>Video System</h1>
+    <div id="container" ng-controller="vsController">
+        <ul class="videos">
+            <li ng-repeat="video in videoCollection | filter:video.category" >
+                <span>{{video.title}}</span>
+                <div id="video-info">
+                    <span>Category: {{video.category}}</span>
+                    <p>Release date: {{video.date}}</p>
+                    <span>Subtitles: {{video.haveSubtitles}}</span>
+                    <p>Length: {{video.length}}</p>
+                    <span>Likes: {{video.comments[0].likes}}</span>
+                </div>
+            </li>
+        </ul>
+        <form action="">
+            <div id="sorter">
+                Sort by:
+                <div class="radio">
+                    <label><input type="radio" name="optradio" ng-click="sortByTitle()">Title</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" ng-click="sortByLength()">Length</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" ng-click="sortByDate()">Date</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" ng-click="sortByLikes()">Likes</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sel1">Filter by category</label>
+                <select class="form-control" id="sel1" ng-model="video" ng-options="v.category for v in videoCollection">
+                    <option value="">All categories</option>
+                </select>
+                <label for="sel2">Filter by date</label>
+                <select class="form-control" id="sel2" ng-model="video" ng-options="v.date for v in videoCollection">
+                    <option value="">All dates</option>
+                </select>
+                <strong>Filter by subtitles</strong>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" ng-click="filterBySubs()">All videos</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" ng-click="filterBySubs('Yes')">Yes</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" ng-click="filterBySubs('No')">No</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+</body>
+</html>

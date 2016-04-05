@@ -1,0 +1,19 @@
+#container {
+	border: 1px solid black;
+
+}
+
+#video-info {
+	border: 1px dotted black;
+	width: 250px;
+}
+
+.videos {
+	display: flex;
+	justify-content: space-around;
+}
+
+form {
+	display: flex;
+	justify-content: space-around;
+}
