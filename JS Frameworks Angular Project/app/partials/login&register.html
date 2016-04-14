@@ -21,13 +21,6 @@
             <br />
             <label for="reg-confirm-password">Confirm Password</label>
             <input type="password" required="required" min-length="6" max-length="100" ng-model="registerUser.confirmPassword" id="reg-confirm-password" class="form-control" />
-            <!--<br />-->
-            <!--<label for="reg-name">Name</label>-->
-            <!--<input type="text" required="required" ng-model="registerUser.name" id="reg-name" class="form-control" />-->
-            <!--<br />-->
-            <!--<label for="reg-email">E-mail</label>-->
-            <!--<input type="email" required="required" ng-model="registerUser.email" id="reg-email" class="form-control" />-->
-            <!--<br />-->
             <button class="btn btn-primary" ng-disabled="registerUserForm.$invalid || registerUser.password != registerUser.confirmPassword" ng-click="register(registerUser)">Register</button>
         </form>
     </div>

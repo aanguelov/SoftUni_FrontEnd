@@ -3,3 +3,11 @@
     border-radius: 10px;
     padding: 15px;
 }
+
+body {
+    background-color: #9acfea;
+}
+
+.navbar {
+    border-radius: 0;
+}

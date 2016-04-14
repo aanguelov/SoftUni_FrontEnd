@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('issueTracker.authentication', [])
     .factory('authentication', [
         '$http',
@@ -6,28 +8,69 @@ angular.module('issueTracker.authentication', [])
         function($http, $q, baseUrl) {
             function register(user) {
 
-                var deferred = $q.defer(),
-                    data = {
+                var deferred = $q.defer();
+
+                var req = {
+                    method: 'POST',
+                    url: baseUrl + 'api/Account/Register',
+                    data: {
                         Email: user.username,
                         Password: user.password,
                         ConfirmPassword: user.confirmPassword
-                    };
+                    }
+                };
 
-                $http.post(baseUrl + 'api/Account/Register', data);
+                $http(req)
+                    .then(function success() {
+                        deferred.resolve();
+                    }, function error(err) {
+                        deferred.reject(err);
+                    });
 
                 return deferred.promise;
             }
 
             function login(user) {
-                var deferred = $q.defer(),
-                    data = "grant_type=password&username=" + user.username + "&password=" + user.password;
+                var deferred = $q.defer();
 
-                $http.post(baseUrl + 'api/Token', data)
+                var req = {
+                    method: 'POST',
+                    url: baseUrl + 'api/Token',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: "grant_type=password&username=" + user.username + "&password=" + user.password
+                };
+
+                $http(req)
                     .then(function success(response) {
                         console.log(response);
                         deferred.resolve(response.data);
                     }, function error(err) {
+                        console.log(err);
+                        deferred.reject(err);
+                    });
 
+                return deferred.promise;
+            }
+
+            function logout() {
+                var deferred = $q.defer();
+
+                var req = {
+                    method: 'POST',
+                    url: baseUrl + 'api/Account/Logout',
+                    headers: {
+                        'Authorization': 'Bearer' + sessionStorage['access_token']
+                    },
+                    data: { test: 'test' }
+                };
+
+                $http(req)
+                    .then(function success() {
+                        deferred.resolve();
+                    }, function error(err) {
+                        deferred.reject(err);
                     });
 
                 return deferred.promise;
@@ -35,7 +78,8 @@ angular.module('issueTracker.authentication', [])
 
             return {
                 registerUser: register,
-                loginUser: login
+                loginUser: login,
+                logoutUser: logout
             }
         }
     ]);
