@@ -1,0 +1,61 @@
+<div class="row" ng-if="!isAuthenticated()">
+    <div class="col-md-3 col-md-offset-1 border">
+        <form name="loginUserForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" required="required" ng-model="loginUser.username" class="form-control" />
+            <br />
+            <label for="password">Password</label>
+            <input type="password" required="required" ng-model="loginUser.password" id="password" class="form-control" />
+            <br />
+            <button class="btn btn-primary" ng-disabled="loginUserForm.$invalid" ng-click="login(loginUser)">Login</button>
+        </form>
+    </div>
+
+    <div class="col-md-3 col-md-offset-4 border">
+        <form name="registerUserForm">
+            <label for="reg-username">Username</label>
+            <input type="text"  required="required" ng-model="registerUser.username" id="reg-username" class="form-control" />
+            <br />
+            <label for="reg-password">Password</label>
+            <input type="password"
+                   required="required"
+                   min-length="6"
+                   max-length="100"
+                   ng-model="registerUser.password"
+                   id="reg-password"
+                   class="form-control" />
+            <br />
+            <label for="reg-confirm-password">Confirm Password</label>
+            <input type="password"
+                   required="required"
+                   min-length="6"
+                   max-length="100"
+                   ng-model="registerUser.confirmPassword"
+                   id="reg-confirm-password"
+                   class="form-control" />
+            <button class="btn btn-primary"
+                    ng-disabled="registerUserForm.$invalid || registerUser.password != registerUser.confirmPassword"
+                    ng-click="register(registerUser)">Register</button>
+        </form>
+    </div>
+</div>
+<div class="jumbotron" ng-if="isAuthenticated()">
+    <div class="col-md-5">
+        <h2>Dashboard</h2>
+        <input type="button" value="Admin" ng-if="isAdmin()" />
+        <h3>Affiliated projects</h3>
+        <a href="#">entirely new project</a>
+    </div>
+    <div class="col-md-7">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Project</th>
+                <th>Due Date</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>

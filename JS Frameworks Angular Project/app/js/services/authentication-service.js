@@ -45,9 +45,24 @@ angular.module('issueTracker.authentication', [])
                 $http(req)
                     .then(function success(response) {
                         console.log(response);
-                        deferred.resolve(response.data);
+                        var userData = response.data;
+
+                        var userInfoReq = {
+                            method: 'GET',
+                            url: baseUrl + 'users/me',
+                            headers: { Authorization: 'Bearer ' + userData.access_token }
+                        };
+
+                        $http(userInfoReq)
+                            .then(function success(data) {
+                                userData.isAdmin = data.data.isAdmin;
+                                sessionStorage['currentUser'] = JSON.stringify(userData);
+                                deferred.resolve(data);
+                            }, function error(err) {
+                                deferred.reject(err);
+                            });
+
                     }, function error(err) {
-                        console.log(err);
                         deferred.reject(err);
                     });
 
@@ -55,15 +70,15 @@ angular.module('issueTracker.authentication', [])
             }
 
             function logout() {
-                var deferred = $q.defer();
+                var deferred = $q.defer(),
+                    currentUser = getUser();
 
                 var req = {
                     method: 'POST',
                     url: baseUrl + 'api/Account/Logout',
                     headers: {
-                        'Authorization': 'Bearer' + sessionStorage['access_token']
-                    },
-                    data: { test: 'test' }
+                        'Authorization': 'Bearer ' + currentUser.access_token
+                    }
                 };
 
                 $http(req)
@@ -76,10 +91,53 @@ angular.module('issueTracker.authentication', [])
                 return deferred.promise;
             }
 
+            function getUser() {
+                var userObject = sessionStorage['currentUser'];
+                if (userObject) {
+                    return JSON.parse(sessionStorage['currentUser']);
+                }
+            }
+
+            function changePassword(user) {
+                var deferred = $q.defer(),
+                    currentUser = getUser(),
+                    data = 'OldPassword=' + user.oldPassword +
+                        '&NewPassword=' + user.newPassword +
+                        '&ConfirmPassword=' + user.newPasswordConfirm;
+
+                var req = {
+                    method: 'POST',
+                    url: baseUrl + 'api/Account/ChangePassword',
+                    data: data,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization': 'Bearer ' + currentUser.access_token
+                    }
+                };
+
+                $http(req)
+                    .then(function success() {
+                        deferred.resolve()
+                    }, function error(err) {
+                        deferred.reject(err);
+                    });
+
+                return deferred.promise;
+            }
+
             return {
                 registerUser: register,
                 loginUser: login,
-                logoutUser: logout
+                logoutUser: logout,
+                getCurrentUser: getUser,
+                changePassword: changePassword,
+                isAuthenticated: function() {
+                    return sessionStorage['currentUser'] != undefined;
+                },
+                isAdmin: function() {
+                    var currentUser = getUser();
+                    return (currentUser != undefined) && (currentUser.isAdmin);
+                }
             }
         }
     ]);

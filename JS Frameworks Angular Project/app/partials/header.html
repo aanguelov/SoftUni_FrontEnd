@@ -4,12 +4,12 @@
             <a class="navbar-brand" href="#">SoftUni Issue Tracker</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Dashboard</a></li>
+            <li class="active"><a href="#/">Dashboard</a></li>
             <li class="active"><a href="#">Projects</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <ul class="nav navbar-nav navbar-right" ng-if="isAuthenticated()">
+            <li><a href="#/profile/password"><span class="glyphicon glyphicon-edit"></span> Change password</a></li>
+            <li ng-click="logout()"><a href="#/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
     </div>
 </nav>
