@@ -13,9 +13,13 @@ angular.module('issueTracker.common', [])
         'notifyService',
         function($scope, $location, authentication, notifyService) {
 
-            $scope.isAuthenticated = authentication.isAuthenticated;
+            $scope.isAuthenticated = function() {
+                return authentication.isAuthenticated();
+            };
 
-            $scope.isAdmin = authentication.isAdmin;
+            $scope.isAdmin = function() {
+                return authentication.isAdmin();
+            };
 
             $scope.logout = function() {
                 authentication.logoutUser()
