@@ -1,4 +1,6 @@
-angular.module('issueTracker.home', [])
+'use strict';
+
+angular.module('issueTracker.controllers.home', [])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/', {

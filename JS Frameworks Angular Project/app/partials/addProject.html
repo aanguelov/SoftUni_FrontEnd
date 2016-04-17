@@ -1,0 +1,33 @@
+<div class="page-header">
+    <h2>New project</h2>
+</div>
+<form name="addProjectForm">
+    <div class="form-group">
+        <label for="projectName">Name</label>
+        <input type="text" class="form-control" id="projectName" ng-model="project.name" placeholder="name" required />
+    </div>
+    <div class="form-group">
+        <label for="projectLeader">Leader</label>
+        <select class="form-control" id="projectLeader" ng-model="project.leadId">
+            <option value="">Choose leader of the project</option>
+            <option ng-repeat="user in allUsers" value="{{user.Id}}">{{user.Username}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="projectKey">Project key</label>
+        <input type="text" class="form-control" id="projectKey" ng-model="project.key" placeholder="key" required />
+    </div>
+    <div class="form-group">
+        <label for="projectPriorities">Priorities (comma separated)</label>
+        <input type="text" class="form-control" id="projectPriorities" ng-model="project.priorities" placeholder="priorities" />
+    </div>
+    <div class="form-group">
+        <label for="projectLabels">Labels (comma separated)</label>
+        <input type="text" class="form-control" id="projectLabels" ng-model="project.labels" placeholder="labels" />
+    </div>
+    <div class="form-group">
+        <label for="projectDescription">Description</label>
+        <textarea class="form-control" id="projectDescription" ng-model="project.description" placeholder="description" required></textarea>
+    </div>
+    <button class="btn btn-primary" ng-disabled="addProjectForm.$invalid" ng-click="addProject(project)">Add project</button>
+</form>

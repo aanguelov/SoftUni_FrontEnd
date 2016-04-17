@@ -1,4 +1,6 @@
-angular.module('issueTracker.common', [])
+'use strict';
+
+angular.module('issueTracker.controllers.common', [])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/profile/password', {

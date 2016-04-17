@@ -5,7 +5,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#/">Dashboard</a></li>
-            <li class="active"><a href="#">Projects</a></li>
+            <li class="active" ng-if="isAuthenticated()"><a href="#/projects">Projects</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" ng-if="isAuthenticated()">
             <li><a href="#/profile/password"><span class="glyphicon glyphicon-edit"></span> Change password</a></li>

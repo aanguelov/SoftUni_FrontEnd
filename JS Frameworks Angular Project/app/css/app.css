@@ -11,3 +11,7 @@ body {
 .navbar {
     border-radius: 0;
 }
+
+.project {
+    padding: 1px;
+}

@@ -3,10 +3,13 @@
 angular.module('issueTracker', [
         'ngRoute',
         'ngResource',
-        'issueTracker.home',
-        'issueTracker.common',
-        'issueTracker.authentication',
-        'issueTracker.notifier'
+        'issueTracker.controllers.home',
+        'issueTracker.controllers.common',
+        'issueTracker.controllers.projects',
+        'issueTracker.services.authentication',
+        'issueTracker.services.projects',
+        'issueTracker.services.users',
+        'issueTracker.services.notifier'
     ])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
