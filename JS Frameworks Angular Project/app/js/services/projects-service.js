@@ -64,8 +64,50 @@ angular.module('issueTracker.services.projects', [])
             return deferred.promise;
         }
 
+        function showProject(projectId) {
+            var deferred = $q.defer(),
+                projectReq = {
+                    method: 'GET',
+                    url: baseUrl + 'projects/' + projectId,
+                    headers: {
+                        'Authorization': 'Bearer ' + JSON.parse(sessionStorage['currentUser']).access_token
+                    }
+                };
+
+            $http(projectReq)
+                .then(function success(response) {
+                    deferred.resolve(response.data);
+                }, function error(err) {
+                    deferred.reject(err);
+                });
+
+            return deferred.promise;
+        }
+
+        function getIssuesByProjectId(projectId) {
+            var deferred = $q.defer(),
+                issuesReq = {
+                    method: 'GET',
+                    url: baseUrl + 'projects/' + projectId + '/issues',
+                    headers: {
+                        'Authorization': 'Bearer ' + JSON.parse(sessionStorage['currentUser']).access_token
+                    }
+                };
+
+            $http(issuesReq)
+                .then(function success(response) {
+                    deferred.resolve(response.data);
+                }, function error(err) {
+                    deferred.reject(err);
+                });
+
+            return deferred.promise;
+        }
+
         return {
             getAllProjects: getAllProjects,
-            addProject: addProject
+            addProject: addProject,
+            showProject: showProject,
+            getIssues: getIssuesByProjectId
         }
     }]);

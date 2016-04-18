@@ -1,0 +1,33 @@
+<div class="page-header">
+    <h2>Project page</h2>
+</div>
+<div class="col-md-5">
+    <span><strong>{{currentProject.ProjectKey}}</strong></span>
+    <a href="#projects/:id/edit" class="btn btn-success" ng-if="isAdmin()" ng-click="getProjectById(project.Id)" role="button">Edit</a>
+    <a href="#projects/:id/add-issue" class="btn btn-success" ng-click="getProjectById(project.Id)" role="button">Add Issue</a>
+    <p>ProjectKey: {{currentProject.ProjectKey}}</p>
+    <p>Name: {{currentProject.Name}}</p>
+    <p>Description: {{currentProject.Description}}</p>
+    <p>Labels: {{currentProjectLabels.join(', ')}}</p>
+    <p>Priorities: {{currentProjectPriorities.join(', ')}}</p>
+</div>
+<div class="col-md-7">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>DueDate</th>
+                <th>Assignee</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="issue in currentProjectIssues">
+                <td><a href="#issues/{{issue.Id}}">{{issue.Title}}</a></td>
+                <td>{{issue.Description}}</td>
+                <td>{{issue.DueDate}}</td>
+                <td>{{issue.Assignee.Username}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

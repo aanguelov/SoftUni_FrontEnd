@@ -11,6 +11,10 @@ angular.module('issueTracker.controllers.projects', [])
                 templateUrl: 'partials/addProject.html',
                 controller: 'ProjectsController'
             })
+            .when('/projects/:id', {
+                templateUrl: 'partials/project-page.html',
+                controller: 'ViewProjectController'
+            })
     }])
     .controller('ProjectsController', ['$scope', 'projects', 'users', function($scope, projects, users) {
 
@@ -41,4 +45,32 @@ angular.module('issueTracker.controllers.projects', [])
 
         getAllProjects();
         getAllUsers();
+    }])
+    .controller('ViewProjectController', ['$scope', '$routeParams', 'projects', function($scope, $routeParams, projects) {
+
+        projects.showProject($routeParams.id)
+            .then(function success(data) {
+                $scope.currentProject = data;
+
+                $scope.currentProjectLabels = [];
+                $scope.currentProjectPriorities = [];
+
+                data.Labels.forEach(function(l) {
+                    $scope.currentProjectLabels.push(l.Name);
+                });
+
+                data.Priorities.forEach(function(p) {
+                    $scope.currentProjectPriorities.push(p.Name);
+                });
+
+                projects.getIssues(data.Id)
+                    .then(function success(issuesData) {
+                        console.log(issuesData);
+                        $scope.currentProjectIssues = issuesData;
+                    }, function error(err) {
+
+                    });
+            }, function error(err) {
+
+            });
     }]);
