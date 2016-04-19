@@ -2,12 +2,12 @@
     <h2>Project page</h2>
 </div>
 <div class="col-md-5">
-    <span><strong>{{currentProject.ProjectKey}}</strong></span>
+    <span class="key"><strong>{{currentProject.ProjectKey}}</strong></span>
     <a href="#projects/edit/{{currentProject.Id}}" class="btn btn-success" ng-if="isAdmin()" role="button">Edit</a>
     <a href="#projects/add-issue/{{currentProject.Id}}" class="btn btn-success" role="button">Add Issue</a>
-    <p>ProjectKey: {{currentProject.ProjectKey}}</p>
-    <p>Name: {{currentProject.Name}}</p>
-    <p>Description: {{currentProject.Description}}</p>
+    <p><strong>ProjectKey:</strong> {{currentProject.ProjectKey}}</p>
+    <p><strong>Name:</strong> {{currentProject.Name}}</p>
+    <p><strong>Description:</strong> {{currentProject.Description}}</p>
     <p>Labels: {{currentProjectLabels.join(', ')}}</p>
     <p>Priorities: {{currentProjectPriorities.join(', ')}}</p>
 </div>

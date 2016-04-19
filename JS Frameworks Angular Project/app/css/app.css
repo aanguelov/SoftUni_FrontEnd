@@ -15,3 +15,11 @@ body {
 .project {
     padding: 1px;
 }
+
+.key {
+    font-size: 25px;
+}
+
+.status {
+    list-style-type: none;
+}
