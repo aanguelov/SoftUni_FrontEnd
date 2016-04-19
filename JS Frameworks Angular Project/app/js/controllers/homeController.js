@@ -12,8 +12,14 @@ angular.module('issueTracker.controllers.home', [])
         '$scope',
         '$location',
         'authentication',
+        'issues',
         'notifyService',
-        function($scope, $location, authentication, notifyService) {
+        'PAGE_SIZE',
+        function($scope, $location, authentication, issues, notifyService, pageSize) {
+            $scope.issuesParams = {
+                pageSize: pageSize,
+                pageNumber: 1
+            };
 
             $scope.register = function(user) {
                 authentication.registerUser(user)
@@ -33,4 +39,18 @@ angular.module('issueTracker.controllers.home', [])
                         notifyService.showError('Login failed!', err);
                     });
             };
+
+            $scope.getUserIssues = function() {
+                if(authentication.isAuthenticated()) {
+                    issues.getUserIssues($scope.issuesParams)
+                        .then(function success(data) {
+                            $scope.userIssues = data.Issues;
+                            $scope.userIssuesCount = data.TotalPages * $scope.issuesParams.pageSize;
+                        }, function error(err) {
+                            notifyService.showError('Unable to get issues', err);
+                        });
+                }
+            };
+
+            $scope.getUserIssues();
         }]);

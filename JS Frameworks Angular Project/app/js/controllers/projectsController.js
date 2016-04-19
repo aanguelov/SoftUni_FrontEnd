@@ -20,104 +20,117 @@ angular.module('issueTracker.controllers.projects', [])
                 controller: 'EditProjectController'
             })
     }])
-    .controller('ProjectsController', ['$scope', 'projects', 'users', function($scope, projects, users) {
+    .controller('ProjectsController', [
+        '$scope',
+        '$location',
+        'projects',
+        function($scope, $location, projects) {
 
-        $scope.allUsers();
+            $scope.allUsers();
 
-        $scope.addProject = function(project) {
-            projects.addProject(project)
-                .then(function success(data) {
+            $scope.addProject = function(project) {
+                projects.addProject(project)
+                    .then(function success(data) {
+                        $location.path('projects/' + data.Id);
+                    }, function error(err) {
+                        console.log(err);
+                    });
+            };
 
-                }, function error(err) {
-                    console.log(err);
-                });
-        };
+            function getAllProjects() {
+                projects.getAllProjects()
+                    .then(function success(result) {
+                        $scope.allProjects = result
+                    }, function error(err) {
+                        console.log(err);
+                    });
+            }
 
-        function getAllProjects() {
-            projects.getAllProjects()
-                .then(function success(result) {
-                    $scope.allProjects = result
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
-        getAllProjects();
+            getAllProjects();
     }])
-    .controller('ViewProjectController', ['$scope', '$routeParams', 'projects', function($scope, $routeParams, projects) {
+    .controller('ViewProjectController', [
+        '$scope',
+        '$routeParams',
+        'projects',
+        function($scope, $routeParams, projects) {
 
-        projects.showProject($routeParams.id)
-            .then(function success(data) {
-                $scope.currentProject = data;
+            projects.showProject($routeParams.id)
+                .then(function success(data) {
+                    $scope.currentProject = data;
 
-                $scope.currentProjectLabels = [];
-                $scope.currentProjectPriorities = [];
+                    $scope.currentProjectLabels = [];
+                    $scope.currentProjectPriorities = [];
 
-                data.Labels.forEach(function(l) {
-                    $scope.currentProjectLabels.push(l.Name);
+                    data.Labels.forEach(function(l) {
+                        $scope.currentProjectLabels.push(l.Name);
+                    });
+
+                    data.Priorities.forEach(function(p) {
+                        $scope.currentProjectPriorities.push(p.Name);
+                    });
+
+                    projects.getIssues(data.Id)
+                        .then(function success(issuesData) {
+                            $scope.currentProjectIssues = issuesData;
+                        }, function error(err) {
+
+                        });
+                }, function error(err) {
+
+                });
+    }])
+    .controller('EditProjectController', [
+        '$scope',
+        '$routeParams',
+        '$location',
+        'projects',
+        function($scope, $routeParams, $location, projects) {
+
+            $scope.allUsers();
+
+            function getArrayOfStrings(str) {
+                return str.split(',');
+            }
+
+            projects.showProject($routeParams.id)
+                .then(function success(data) {
+                    $scope.currentProject = data;
+
+                    $scope.currentProjectLabels = [];
+                    $scope.currentProjectPriorities = [];
+
+                    data.Labels.forEach(function(l) {
+                        $scope.currentProjectLabels.push(l.Name);
+                    });
+
+                    data.Priorities.forEach(function(p) {
+                        $scope.currentProjectPriorities.push(p.Name);
+                    });
+                }, function error(err) {
+
                 });
 
-                data.Priorities.forEach(function(p) {
-                    $scope.currentProjectPriorities.push(p.Name);
-                });
+            $scope.editProject = function() {
+                if(typeof $scope.currentProjectLabels === 'string') {
+                    $scope.currentProjectLabels = getArrayOfStrings($scope.currentProjectLabels);
+                }
+                if(typeof $scope.currentProjectPriorities === 'string') {
+                    $scope.currentProjectPriorities = getArrayOfStrings($scope.currentProjectPriorities);
+                }
 
-                projects.getIssues(data.Id)
-                    .then(function success(issuesData) {
-                        $scope.currentProjectIssues = issuesData;
+                var projectForEdit = {
+                    Name: $scope.currentProject.Name,
+                    Description: $scope.currentProject.Description,
+                    Priorities: $scope.currentProjectPriorities,
+                    Labels: $scope.currentProjectLabels,
+                    LeadId: $scope.currentProject.Lead.Id
+                };
+
+                projects.editProject(projectForEdit, $routeParams.id)
+                    .then(function success(data) {
+                        $location.path('projects/' + data.Id)
                     }, function error(err) {
 
                     });
-            }, function error(err) {
-
-            });
-    }])
-    .controller('EditProjectController', ['$scope', '$routeParams', '$location', 'projects', function($scope, $routeParams, $location, projects) {
-
-        $scope.allUsers();
-
-        function getArrayOfStrings(str) {
-            return str.split(',');
-        }
-
-        projects.showProject($routeParams.id)
-            .then(function success(data) {
-                $scope.currentProject = data;
-
-                $scope.currentProjectLabels = [];
-                $scope.currentProjectPriorities = [];
-
-                data.Labels.forEach(function(l) {
-                    $scope.currentProjectLabels.push(l.Name);
-                });
-
-                data.Priorities.forEach(function(p) {
-                    $scope.currentProjectPriorities.push(p.Name);
-                });
-            }, function error(err) {
-
-            });
-
-        $scope.editProject = function() {
-            if(typeof $scope.currentProjectLabels === 'string') {
-                $scope.currentProjectLabels = getArrayOfStrings($scope.currentProjectLabels);
-            }
-            if(typeof $scope.currentProjectPriorities === 'string') {
-                $scope.currentProjectPriorities = getArrayOfStrings($scope.currentProjectPriorities);
-            }
-
-            var projectForEdit = {
-                Name: $scope.currentProject.Name,
-                Description: $scope.currentProject.Description,
-                Priorities: $scope.currentProjectPriorities,
-                Labels: $scope.currentProjectLabels,
-                LeadId: $scope.currentProject.Lead.Id
             };
-
-            projects.editProject(projectForEdit, $routeParams.id)
-                .then(function success(data) {
-                    $location.path('projects/' + data.Id)
-                }, function error(err) {
-
-                });
-        };
     }]);

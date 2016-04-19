@@ -44,7 +44,6 @@ angular.module('issueTracker.services.authentication', [])
 
                 $http(req)
                     .then(function success(response) {
-                        console.log(response);
                         var userData = response.data;
 
                         var userInfoReq = {

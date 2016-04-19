@@ -58,8 +58,17 @@
                 </tr>
             </thead>
             <tbody>
-
+                <tr ng-repeat="issue in userIssues">
+                    <td>{{issue.Title}}</td>
+                    <td>{{issue.Description}}</td>
+                    <td>{{issue.Project.Name}}</td>
+                    <td>{{issue.DueDate}}</td>
+                </tr>
             </tbody>
         </table>
+        <pagination total-items="userIssuesCount" ng-model="issuesParams.pageNumber"
+                    items-per-page="issuesParams.pageSize" ng-change="getUserIssues()"
+                    max-size="9" boundary-links="true" class="aligner">
+        </pagination>
     </div>
 </div>
