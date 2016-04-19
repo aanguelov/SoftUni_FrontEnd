@@ -37,16 +37,16 @@ angular.module('issueTracker.controllers.projects', [])
                     });
             };
 
-            function getAllProjects() {
+            $scope.getAllProjects = function() {
                 projects.getAllProjects()
                     .then(function success(result) {
                         $scope.allProjects = result
                     }, function error(err) {
                         console.log(err);
                     });
-            }
+            };
 
-            getAllProjects();
+            $scope.getAllProjects();
     }])
     .controller('ViewProjectController', [
         '$scope',
