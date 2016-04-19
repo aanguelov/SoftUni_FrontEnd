@@ -59,7 +59,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="issue in userIssues">
-                    <td>{{issue.Title}}</td>
+                    <td><a href="#issues/{{issue.Id}}">{{issue.Title}}</a></td>
                     <td>{{issue.Description}}</td>
                     <td>{{issue.Project.Name}}</td>
                     <td>{{issue.DueDate}}</td>

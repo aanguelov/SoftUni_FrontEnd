@@ -34,6 +34,7 @@ angular.module('issueTracker.controllers.home', [])
             $scope.login = function(user) {
                 authentication.loginUser(user)
                     .then(function success(userData) {
+                        $scope.getUserIssues();
                         notifyService.showSuccess('User logged in successfully!');
                     }, function error(err) {
                         notifyService.showError('Login failed!', err);
