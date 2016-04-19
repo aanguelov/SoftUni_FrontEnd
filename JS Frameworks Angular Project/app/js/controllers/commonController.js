@@ -12,8 +12,9 @@ angular.module('issueTracker.controllers.common', [])
         '$scope',
         '$location',
         'authentication',
+        'users',
         'notifyService',
-        function($scope, $location, authentication, notifyService) {
+        function($scope, $location, authentication, users, notifyService) {
 
             $scope.isAuthenticated = function() {
                 return authentication.isAuthenticated();
@@ -42,4 +43,13 @@ angular.module('issueTracker.controllers.common', [])
                         notifyService.showError('Failed to change password.', err);
                     });
             };
+
+            $scope.allUsers = function() {
+                users.getAllUsers()
+                    .then(function success(response) {
+                        $scope.users = response;
+                    }, function error(err) {
+                        notifyService.showError('Unable to get all users', err)
+                    });
+            }
         }]);

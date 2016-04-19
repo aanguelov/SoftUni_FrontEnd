@@ -104,9 +104,48 @@ angular.module('issueTracker.services.projects', [])
             return deferred.promise;
         }
 
+        function editProject(project, id) {
+            var deferred = $q.defer();
+
+            var dataLabels = '';
+            project.Labels.forEach(function(l, index) {
+                dataLabels += '&labels[' + index + '].Name=' + l.trim();
+            });
+
+            var dataPriorities = '';
+            project.Priorities.forEach(function(p, index) {
+                dataPriorities += '&priorities[' + index + '].Name=' + p.trim();
+            });
+
+            var data = 'Name=' + project.Name +
+                '&Description=' + project.Description +
+                dataLabels + dataPriorities +
+                '&LeadId=' + project.LeadId;
+
+            var req = {
+                method: 'PUT',
+                url: baseUrl + 'projects/' + id,
+                headers: {
+                    'Authorization': 'Bearer ' + JSON.parse(sessionStorage['currentUser']).access_token,
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                data: data
+            };
+
+            $http(req)
+                .then(function success(response) {
+                    deferred.resolve(response.data);
+                }, function error(err) {
+                    deferred.reject(err);
+                });
+
+            return deferred.promise;
+        }
+
         return {
             getAllProjects: getAllProjects,
             addProject: addProject,
+            editProject: editProject,
             showProject: showProject,
             getIssues: getIssuesByProjectId
         }
