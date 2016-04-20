@@ -19,6 +19,10 @@ angular.module('issueTracker.controllers.projects', [])
                 templateUrl: 'partials/edit-project.html',
                 controller: 'EditProjectController'
             })
+            .when('/projects/add-issue/:id', {
+                templateUrl: 'partials/addIssue.html',
+                controller: 'AddIssueToProjectController'
+            })
     }])
     .controller('ProjectsController', [
         '$scope',
@@ -131,6 +135,37 @@ angular.module('issueTracker.controllers.projects', [])
                         $location.path('projects/' + data.Id)
                     }, function error(err) {
 
+                    });
+            };
+    }])
+    .controller('AddIssueToProjectController', [
+        '$scope',
+        '$routeParams',
+        '$location',
+        'projects',
+        function($scope, $routeParams, $location, projects) {
+            $scope.allUsers();
+
+            projects.showProject($routeParams.id)
+                .then(function success(data) {
+                    $scope.projectPriorities = data.Priorities;
+                });
+
+            $scope.addIssueToProject = function(issueToAdd) {
+
+                var issueToSend = {
+                    Title: issueToAdd.Title,
+                    Description: issueToAdd.Description,
+                    DueDate: issueToAdd.DueDate,
+                    ProjectId: $routeParams.id,
+                    AssigneeId: issueToAdd.AssigneeId,
+                    PriorityId: issueToAdd.PriorityId,
+                    Labels: issueToAdd.Labels.split(',')
+                };
+
+                projects.addIssueToProject(issueToSend)
+                    .then(function success(data) {
+                        $location.path('projects/' + data.Project.Id)
                     });
             };
     }]);

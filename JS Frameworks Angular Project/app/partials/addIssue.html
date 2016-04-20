@@ -1,0 +1,40 @@
+<div class="page-header">
+    <h2>Add issue</h2>
+</div>
+<form name="addIssueForm">
+    <div class="form-group">
+        <label for="issueTitle">Title</label>
+        <input type="text" id="issueTitle" class="form-control" ng-model="addIssue.Title" required />
+    </div>
+    <div class="form-group">
+        <label for="issueDescription">Description</label>
+        <textarea class="form-control"
+                  id="issueDescription"
+                  ng-model="addIssue.Description"
+                  required>
+        </textarea>
+    </div>
+    <div class="form-group">
+        <label for="issueDueDate">Due date</label>
+        <input type="datetime-local" id="issueDueDate" class="form-control" ng-model="addIssue.DueDate" required />
+    </div>
+    <div class="form-group">
+        <label for="issueAssignee">Assignee</label>
+        <select class="form-control" id="issueAssignee" ng-model="addIssue.AssigneeId" required>
+            <option value="">Choose assignee</option>
+            <option ng-repeat="user in users" value="{{user.Id}}">{{user.Username}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="priorities">Priority</label>
+        <select class="form-control" id="priorities" ng-model="addIssue.PriorityId" required>
+            <option value="">Choose priority</option>
+            <option ng-repeat="pr in projectPriorities" value="{{pr.Id}}">{{pr.Name}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="issueLabels">Labels</label>
+        <input type="text" id="issueLabels" class="form-control" ng-model="addIssue.Labels" required />
+    </div>
+    <button class="btn btn-primary" ng-disabled="addIssueForm.$invalid" ng-click="addIssueToProject(addIssue)">Add issue</button>
+</form>

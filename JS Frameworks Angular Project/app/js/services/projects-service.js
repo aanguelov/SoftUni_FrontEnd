@@ -146,11 +146,50 @@ angular.module('issueTracker.services.projects', [])
                 return deferred.promise;
             }
 
+            function addIssueToProject(issue) {
+                var deferred = $q.defer();
+
+                var dataLabels = '';
+                issue.Labels.forEach(function(l, index) {
+                    dataLabels += '&labels[' + index + '].Name=' + l.trim();
+                });
+
+                var data = 'Title=' + issue.Title +
+                        '&Description=' + issue.Description +
+                        '&DueDate=' + issue.DueDate.toLocaleString() +
+                        '&ProjectId=' + issue.ProjectId +
+                        '&AssigneeId=' + issue.AssigneeId +
+                        '&PriorityId=' + issue.PriorityId +
+                        dataLabels;
+
+                //console.log(data);
+
+                var req = {
+                    method: 'POST',
+                    url: baseUrl + 'issues/',
+                    headers: {
+                        'Authorization': 'Bearer ' + JSON.parse(sessionStorage['currentUser']).access_token,
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: data
+                };
+
+                $http(req)
+                    .then(function success(response) {
+                        deferred.resolve(response.data);
+                    }, function error(err) {
+                        deferred.reject(err);
+                    });
+
+                return deferred.promise;
+            }
+
             return {
                 getAllProjects: getAllProjects,
                 addProject: addProject,
                 editProject: editProject,
                 showProject: showProject,
-                getIssues: getIssuesByProjectId
+                getIssues: getIssuesByProjectId,
+                addIssueToProject: addIssueToProject
             }
     }]);

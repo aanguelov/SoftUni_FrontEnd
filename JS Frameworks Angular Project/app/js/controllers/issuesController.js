@@ -17,7 +17,6 @@ angular.module('issueTracker.controllers.issues', [])
         function($scope, $routeParams, issues) {
             issues.getIssueById($routeParams.id)
                 .then(function success(data) {
-                    console.log(data);
                     $scope.currentIssue = data;
                     $scope.currentIssueLabels = [];
 
@@ -39,7 +38,6 @@ angular.module('issueTracker.controllers.issues', [])
 
             issues.getIssueById($routeParams.id)
                 .then(function success(data) {
-                    console.log(data);
                     $scope.currentIssue = data;
                     $scope.currentIssueDueDateLocal = new Date(data.DueDate);
                     $scope.issuePriority = data.Priority.Id;
@@ -59,7 +57,7 @@ angular.module('issueTracker.controllers.issues', [])
 
             $scope.editIssue = function() {
                 if(typeof $scope.currentIssueLabels === 'string') {
-                    $scope.currentIssueLabels = $scope.currentIssueLabels.split(',')
+                    $scope.currentIssueLabels = $scope.currentIssueLabels.split(',');
                 }
 
                 var issueToEdit = {

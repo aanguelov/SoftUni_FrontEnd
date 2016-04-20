@@ -30,7 +30,7 @@ angular.module('issueTracker.services.issues', [])
                 method: 'GET',
                 url: baseUrl + 'issues/' + id,
                 headers: {
-                    'Authorization': 'Bearer ' + JSON.parse(sessionStorage['currentUser']).access_token
+                    'Authorization': 'Bearer ' + JSON.parse(sessionStorage['currentUser']).access_token,
                 }
             };
 
@@ -47,15 +47,28 @@ angular.module('issueTracker.services.issues', [])
         function editIssue(issue, id) {
             var deferred = $q.defer();
 
-            //var issueData =
+            var dataLabels = '';
+            issue.Labels.forEach(function(l, index) {
+                dataLabels += '&labels[' + index + '].Name=' + l.trim();
+            });
+
+            var data = 'Title=' + issue.Title +
+                    '&Description=' + issue.Description +
+                    '&DueDate=' + issue.DueDate.toLocaleString() +
+                    '&AssigneeId=' + issue.AssigneeId +
+                    '&PriorityId=' + issue.PriorityId +
+                    dataLabels;
+
+            console.log(data);
 
             var req = {
                 method: 'PUT',
                 url: baseUrl + 'issues/' + id,
                 headers: {
-                    'Authorization': 'Bearer ' + JSON.parse(sessionStorage['currentUser']).access_token
+                    'Authorization': 'Bearer ' + JSON.parse(sessionStorage['currentUser']).access_token,
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                data: issue
+                data: data
             };
 
             $http(req)
