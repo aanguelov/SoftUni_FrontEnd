@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="css/app.css" />
 </head>
 <body ng-controller="CommonController">
-    <header ng-include="'partials/header.html'"></header>
+    <div ng-header></div>
     <div class="container">
         <div ng-view />
     </div>
-
+    <div ng-footer></div>
     <!--libraries-->
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular/angular-resource.js"></script>
@@ -36,5 +36,8 @@
     <script src="js/services/projects-service.js"></script>
     <script src="js/services/users-service.js"></script>
     <script src="js/services/issues-service.js"></script>
+
+    <!--directives-->
+    <script src="js/directives/templateDirectives.js"></script>
 </body>
 </html>

@@ -23,3 +23,13 @@ body {
 .status {
     list-style-type: none;
 }
+
+.paging {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    background-color: #0f0f0f;
+}

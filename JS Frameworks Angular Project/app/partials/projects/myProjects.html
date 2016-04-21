@@ -2,24 +2,29 @@
     <h2>My projects</h2>
 </div>
 <div class="jumbotron container">
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Project name</th>
-            <th>View project</th>
-            <th>Edit project</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="project in myProjects">
-            <td>{{project.Name}}</td>
-            <td><a href="#projects/{{project.Id}}" class="btn btn-default" role="button">View</a></td>
-            <td><a href="#projects/edit/{{project.Id}}" class="btn btn-success" role="button">Edit</a></td>
-        </tr>
-        </tbody>
-    </table>
-    <pagination total-items="myTotalProjects" ng-model="myProjectsParams.pageNumber"
-                items-per-page="myProjectsParams.pageSize" ng-change="getMyProjects()"
-                max-size="9" boundary-links="true" class="aligner">
-    </pagination>
+    <div ng-if="myProjects.length !== 0">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Project name</th>
+                <th>View project</th>
+                <th>Edit project</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="project in myProjects">
+                <td>{{project.Name}}</td>
+                <td><a href="#projects/{{project.Id}}" class="btn btn-default" role="button">View</a></td>
+                <td><a href="#projects/edit/{{project.Id}}" class="btn btn-success" role="button">Edit</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <pagination total-items="myTotalProjects" ng-model="myProjectsParams.pageNumber"
+                    items-per-page="myProjectsParams.pageSize" ng-change="getMyProjects()"
+                    max-size="9" boundary-links="true" class="paging">
+        </pagination>
+    </div>
+    <div ng-if="myProjects.length === 0">
+        <h3>You are not lead of any project!</h3>
+    </div>
 </div>

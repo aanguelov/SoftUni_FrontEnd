@@ -42,31 +42,38 @@
 <div class="jumbotron container" style="height: 100%" ng-if="isAuthenticated()">
     <div class="col-md-5">
         <h2>Dashboard</h2>
-        <a href="#/projects/add"><button type="button" class="btn btn-lg btn-success" ng-if="isAdmin()">Add new project</button></a>
-        <a href="#/projects" class="btn btn-lg btn-success" ng-click="getAllProjects()" ng-if="isAdmin()">All projects</a>
+        <div ng-if="isAdmin()">
+            <a href="#/projects/add"><button type="button" class="btn btn-lg btn-success">Add new project</button></a>
+            <a href="#/projects" class="btn btn-lg btn-success" ng-click="getAllProjects()">All projects</a>
+        </div>
     </div>
     <div class="col-md-7">
-        <table class="table">
-            <thead>
+        <div ng-if="userIssues.length !== 0">
+            <table class="table">
+                <thead>
                 <tr>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Project</th>
                     <th>Due Date</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr ng-repeat="issue in userIssues">
                     <td><a href="#issues/{{issue.Id}}">{{issue.Title}}</a></td>
                     <td>{{issue.Description}}</td>
                     <td><a href="#/projects/{{issue.Project.Id}}">{{issue.Project.Name}}</a></td>
                     <td>{{issue.DueDate}}</td>
                 </tr>
-            </tbody>
-        </table>
-        <pagination total-items="userIssuesCount" ng-model="issuesParams.pageNumber"
-                    items-per-page="issuesParams.pageSize" ng-change="getUserIssues()"
-                    max-size="9" boundary-links="true" class="aligner">
-        </pagination>
+                </tbody>
+            </table>
+            <pagination total-items="userIssuesCount" ng-model="issuesParams.pageNumber"
+                        items-per-page="issuesParams.pageSize" ng-change="getUserIssues()"
+                        max-size="9" boundary-links="true" class="paging">
+            </pagination>
+        </div>
+        <div ng-if="userIssues.length === 0">
+            <h3>You have no assigned issues.</h3>
+        </div>
     </div>
 </div>

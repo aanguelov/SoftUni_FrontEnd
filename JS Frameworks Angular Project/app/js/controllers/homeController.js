@@ -44,9 +44,11 @@ angular.module('issueTracker.controllers.home', [])
                     });
             };
 
-            $scope.getUserIssues = function() {
+            $scope.getUserIssues = function(predicate) {
+                var criteria = predicate || 'DueDate';
+
                 if(authentication.isAuthenticated()) {
-                    issues.getUserIssues($scope.issuesParams)
+                    issues.getUserIssues(criteria, $scope.issuesParams)
                         .then(function success(data) {
                             $scope.userIssues = data.Issues;
                             $scope.userIssuesCount = data.TotalPages * $scope.issuesParams.pageSize;

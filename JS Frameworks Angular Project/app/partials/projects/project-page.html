@@ -5,12 +5,13 @@
     <div class="col-md-5">
         <span class="key"><strong>{{currentProject.ProjectKey}}</strong></span>
         <a href="#projects/edit/{{currentProject.Id}}" class="btn btn-success" ng-if="isAdmin() || isLeadOfProject" role="button">Edit</a>
-        <a href="#projects/add-issue/{{currentProject.Id}}" class="btn btn-success" role="button">Add Issue</a>
+        <a href="#projects/add-issue/{{currentProject.Id}}" class="btn btn-success" ng-if="isAdmin() || isLeadOfProject" role="button">Add Issue</a>
         <p><strong>ProjectKey:</strong> {{currentProject.ProjectKey}}</p>
         <p><strong>Name:</strong> {{currentProject.Name}}</p>
         <p><strong>Description:</strong> {{currentProject.Description}}</p>
         <p>Labels: {{currentProjectLabels.join(', ')}}</p>
         <p>Priorities: {{currentProjectPriorities.join(', ')}}</p>
+        <div ng-issue-filter></div>
     </div>
     <div class="col-md-7">
         <table class="table">

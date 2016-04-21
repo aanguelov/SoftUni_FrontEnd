@@ -7,7 +7,7 @@ angular.module('issueTracker.controllers.projects', [])
                 templateUrl: 'partials/projects/allProjects.html',
                 controller: 'ProjectsController',
                 access: {
-                    requiresLogin: true
+                    requiresAdmin: true
                 }
             })
             .when('/projects/my', {
