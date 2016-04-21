@@ -20,7 +20,8 @@ angular.module('issueTracker.controllers.issues', [])
         '$scope',
         '$routeParams',
         'issues',
-        function($scope, $routeParams, issues) {
+        'projects',
+        function($scope, $routeParams, issues, projects) {
             $scope.getIssueById = function() {
                 issues.getIssueById($routeParams.id)
                     .then(function success(data) {
@@ -36,7 +37,16 @@ angular.module('issueTracker.controllers.issues', [])
 
                         data.Labels.forEach(function(label) {
                             $scope.currentIssueLabels.push(label.Name);
-                        })
+                        });
+
+                        projects.showProject(data.Project.Id)
+                            .then(function success(data) {
+                                if(data.Lead.Id === JSON.parse(sessionStorage['currentUser']).Id) {
+                                    $scope.isLeadOfProject = true;
+                                }else {
+                                    $scope.isLeadOfProject = false;
+                                }
+                            });
                     }, function error(err) {
 
                     });

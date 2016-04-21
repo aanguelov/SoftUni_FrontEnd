@@ -7,12 +7,14 @@
         <tr>
             <th>Project name</th>
             <th>View project</th>
+            <th>Edit project</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="project in myProjects">
             <td>{{project.Name}}</td>
             <td><a href="#projects/{{project.Id}}" class="btn btn-default" role="button">View</a></td>
+            <td><a href="#projects/edit/{{project.Id}}" class="btn btn-success" role="button">Edit</a></td>
         </tr>
         </tbody>
     </table>
