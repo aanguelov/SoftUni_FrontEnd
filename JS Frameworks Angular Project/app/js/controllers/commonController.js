@@ -5,7 +5,10 @@ angular.module('issueTracker.controllers.common', [])
         $routeProvider
             .when('/profile/password', {
                 templateUrl: 'partials/changePass.html',
-                controller: 'HomeController'
+                controller: 'CommonController',
+                access: {
+                    requiresLogin: true
+                }
             })
     }])
     .controller('CommonController', [
@@ -29,6 +32,7 @@ angular.module('issueTracker.controllers.common', [])
                     .then(function success() {
                         sessionStorage.clear();
                         notifyService.showSuccess('User logged out successfully');
+                        $location.path('/');
                     }, function error(err) {
                         notifyService.showError('Unsuccessful logout', err);
                     });

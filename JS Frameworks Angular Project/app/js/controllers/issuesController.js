@@ -3,11 +3,17 @@ angular.module('issueTracker.controllers.issues', [])
         $routeProvider
             .when('/issues/:id', {
                 templateUrl: 'partials/issues/issue-page.html',
-                controller: 'ViewIssueController'
+                controller: 'ViewIssueController',
+                access: {
+                    requiresLogin: true
+                }
             })
             .when('/issues/edit/:id', {
                 templateUrl: 'partials/issues/edit-issue.html',
-                controller: 'EditIssueController'
+                controller: 'EditIssueController',
+                access: {
+                    requiresLogin: true
+                }
             })
     }])
     .controller('ViewIssueController', [
@@ -15,17 +21,37 @@ angular.module('issueTracker.controllers.issues', [])
         '$routeParams',
         'issues',
         function($scope, $routeParams, issues) {
-            issues.getIssueById($routeParams.id)
-                .then(function success(data) {
-                    $scope.currentIssue = data;
-                    $scope.currentIssueLabels = [];
+            $scope.getIssueById = function() {
+                issues.getIssueById($routeParams.id)
+                    .then(function success(data) {
+                        $scope.currentIssue = data;
 
-                    data.Labels.forEach(function(label) {
-                        $scope.currentIssueLabels.push(label.Name);
-                    })
-                }, function error(err) {
+                        if(data.Assignee.Id === JSON.parse(sessionStorage['currentUser']).Id) {
+                            $scope.isAssignee = true;
+                        }else {
+                            $scope.isAssignee = false;
+                        }
 
-                });
+                        $scope.currentIssueLabels = [];
+
+                        data.Labels.forEach(function(label) {
+                            $scope.currentIssueLabels.push(label.Name);
+                        })
+                    }, function error(err) {
+
+                    });
+            };
+
+            $scope.changeStatus = function(statusId) {
+                //console.log(statusId);
+                issues.changeStatus($routeParams.id, statusId)
+                    .then(function() {
+                        $scope.getIssueById();
+                    });
+            };
+
+            $scope.getIssueById();
+
     }])
     .controller('EditIssueController', [
         '$scope',

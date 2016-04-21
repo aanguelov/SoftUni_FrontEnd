@@ -29,8 +29,17 @@ angular.module('issueTracker', [
         '$location',
         'authentication',
         function($rootScope, $location, authentication) {
-            $rootScope.$on('$locationChangeStart', function(event) {
-                if(!authentication.isAuthenticated()) {
+            $rootScope.$on('$routeChangeStart', function(event, nextRoute) {
+                if(nextRoute.access) {
+                    if(nextRoute.access.requiresLogin && !authentication.isAuthenticated()) {
+                        $location.path('/');
+                    }
+
+                    if(nextRoute.access.requiresAdmin && !authentication.isAdmin()) {
+                        //console.log(prev);
+                        $location.path('/');
+                    }
+                }else {
                     $location.path('/');
                 }
             });

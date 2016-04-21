@@ -5,23 +5,38 @@ angular.module('issueTracker.controllers.projects', [])
         $routeProvider
             .when('/projects', {
                 templateUrl: 'partials/projects/allProjects.html',
-                controller: 'ProjectsController'
+                controller: 'ProjectsController',
+                access: {
+                    requiresLogin: true
+                }
             })
             .when('/projects/add', {
                 templateUrl: 'partials/projects/addProject.html',
-                controller: 'ProjectsController'
+                controller: 'ProjectsController',
+                access: {
+                    requiresAdmin: true
+                }
             })
             .when('/projects/:id', {
                 templateUrl: 'partials/projects/project-page.html',
-                controller: 'ViewProjectController'
+                controller: 'ViewProjectController',
+                access: {
+                    requiresLogin: true
+                }
             })
             .when('/projects/edit/:id', {
                 templateUrl: 'partials/projects/edit-project.html',
-                controller: 'EditProjectController'
+                controller: 'EditProjectController',
+                access: {
+                    requiresLogin: true
+                }
             })
             .when('/projects/add-issue/:id', {
                 templateUrl: 'partials/issues/addIssue.html',
-                controller: 'AddIssueToProjectController'
+                controller: 'AddIssueToProjectController',
+                access: {
+                    requiresLogin: true
+                }
             })
     }])
     .controller('ProjectsController', [
@@ -61,6 +76,12 @@ angular.module('issueTracker.controllers.projects', [])
             projects.showProject($routeParams.id)
                 .then(function success(data) {
                     $scope.currentProject = data;
+
+                    if(data.Lead.Id === JSON.parse(sessionStorage['currentUser']).Id) {
+                        $scope.isLeadOfProject = true;
+                    }else {
+                        $scope.isLeadOfProject = false;
+                    }
 
                     $scope.currentProjectLabels = [];
                     $scope.currentProjectPriorities = [];

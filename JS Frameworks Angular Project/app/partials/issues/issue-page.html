@@ -18,7 +18,14 @@
     <div class="col-md-5">
         <ul class="status">
             Available statuses:
-            <li ng-repeat="status in currentIssue.AvailableStatuses">-----{{status.Name}} <a href="#" class="btn btn-success" role="button">Change</a></li>
+            <li ng-repeat="status in currentIssue.AvailableStatuses">-----{{status.Name}}
+                <button ng-click="changeStatus(status.Id)"
+                        ng-if="isAdmin() || isAssignee"
+                        class="btn btn-success"
+                        role="button">
+                    Change
+                </button>
+            </li>
         </ul>
     </div>
 </div>

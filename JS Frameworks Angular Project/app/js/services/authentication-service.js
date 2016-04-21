@@ -55,6 +55,7 @@ angular.module('issueTracker.services.authentication', [])
                         $http(userInfoReq)
                             .then(function success(data) {
                                 userData.isAdmin = data.data.isAdmin;
+                                userData.Id = data.data.Id;
                                 sessionStorage['currentUser'] = JSON.stringify(userData);
                                 deferred.resolve(data);
                             }, function error(err) {

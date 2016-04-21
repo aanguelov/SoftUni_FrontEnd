@@ -5,7 +5,10 @@ angular.module('issueTracker.controllers.home', [])
         $routeProvider
             .when('/', {
                 templateUrl: 'partials/home.html',
-                controller: 'HomeController'
+                controller: 'HomeController',
+                access: {
+                    requiresLogin: true
+                }
             })
     }])
     .controller('HomeController', [
