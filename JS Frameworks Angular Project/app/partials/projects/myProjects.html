@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h2>Projects</h2>
+    <h2>My projects</h2>
 </div>
 <div class="jumbotron container">
     <table class="table">
@@ -10,14 +10,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="project in allProjects">
+        <tr ng-repeat="project in myProjects">
             <td>{{project.Name}}</td>
             <td><a href="#projects/{{project.Id}}" class="btn btn-default" role="button">View</a></td>
         </tr>
         </tbody>
     </table>
-    <pagination total-items="projectsCount" ng-model="projectsParams.pageNumber"
-                items-per-page="projectsParams.pageSize" ng-change="getAllProjects()"
+    <pagination total-items="myTotalProjects" ng-model="myProjectsParams.pageNumber"
+                items-per-page="myProjectsParams.pageSize" ng-change="getMyProjects()"
                 max-size="9" boundary-links="true" class="aligner">
     </pagination>
 </div>

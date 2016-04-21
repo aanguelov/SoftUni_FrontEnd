@@ -43,7 +43,6 @@ angular.module('issueTracker.controllers.issues', [])
             };
 
             $scope.changeStatus = function(statusId) {
-                //console.log(statusId);
                 issues.changeStatus($routeParams.id, statusId)
                     .then(function() {
                         $scope.getIssueById();

@@ -7,11 +7,11 @@ angular.module('issueTracker.services.projects', [])
         'BASE_URL',
         function($http, $q, baseUrl) {
 
-            function getAllProjects() {
+            function getAllProjects(params) {
                 var deferred = $q.defer(),
                     projectsReq = {
                         method: 'GET',
-                        url: baseUrl + 'projects',
+                        url: baseUrl + 'projects?filter=&pageSize=' + params.pageSize + '&pageNumber=' + params.pageNumber,
                         headers: {
                             'Authorization': 'Bearer ' + JSON.parse(sessionStorage['currentUser']).access_token
                         }
@@ -184,12 +184,35 @@ angular.module('issueTracker.services.projects', [])
                 return deferred.promise;
             }
 
+            function getUserProjects(params) {
+                var leadId = JSON.parse(sessionStorage['currentUser']).Id;
+                var deferred = $q.defer();
+
+                var projectsReq = {
+                    method: 'GET',
+                    url: baseUrl + 'projects?filter=Lead.Id="' + leadId +'"&pageSize=' + params.pageSize + '&pageNumber=' + params.pageNumber,
+                    headers: {
+                        'Authorization': 'Bearer ' + JSON.parse(sessionStorage['currentUser']).access_token
+                    }
+                };
+
+                $http(projectsReq)
+                    .then(function success(response) {
+                        deferred.resolve(response.data);
+                    }, function error(err) {
+                        deferred.reject(err);
+                    });
+
+                return deferred.promise;
+            }
+
             return {
                 getAllProjects: getAllProjects,
                 addProject: addProject,
                 editProject: editProject,
                 showProject: showProject,
                 getIssues: getIssuesByProjectId,
-                addIssueToProject: addIssueToProject
+                addIssueToProject: addIssueToProject,
+                getUserProjects: getUserProjects
             }
     }]);

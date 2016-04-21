@@ -23,7 +23,7 @@ angular.module('issueTracker', [
                 );
     }])
     .constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/')
-    .constant('PAGE_SIZE', 3)
+    .constant('PAGE_SIZE', 5)
     .run([
         '$rootScope',
         '$location',

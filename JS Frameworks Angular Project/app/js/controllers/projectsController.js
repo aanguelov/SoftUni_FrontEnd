@@ -10,6 +10,13 @@ angular.module('issueTracker.controllers.projects', [])
                     requiresLogin: true
                 }
             })
+            .when('/projects/my', {
+                templateUrl: 'partials/projects/myProjects.html',
+                controller: 'MyProjectsController',
+                access: {
+                    requiresLogin: true
+                }
+            })
             .when('/projects/add', {
                 templateUrl: 'partials/projects/addProject.html',
                 controller: 'ProjectsController',
@@ -43,7 +50,12 @@ angular.module('issueTracker.controllers.projects', [])
         '$scope',
         '$location',
         'projects',
-        function($scope, $location, projects) {
+        'PAGE_SIZE',
+        function($scope, $location, projects, pageSize) {
+            $scope.projectsParams = {
+                pageSize: pageSize,
+                pageNumber: 1
+            };
 
             $scope.allUsers();
 
@@ -57,9 +69,10 @@ angular.module('issueTracker.controllers.projects', [])
             };
 
             $scope.getAllProjects = function() {
-                projects.getAllProjects()
-                    .then(function success(result) {
-                        $scope.allProjects = result
+                projects.getAllProjects($scope.projectsParams)
+                    .then(function success(data) {
+                        $scope.allProjects = data.Projects;
+                        $scope.projectsCount = data.TotalPages * $scope.projectsParams.pageSize;
                     }, function error(err) {
                         console.log(err);
                     });
@@ -75,6 +88,7 @@ angular.module('issueTracker.controllers.projects', [])
 
             projects.showProject($routeParams.id)
                 .then(function success(data) {
+                    console.log(data);
                     $scope.currentProject = data;
 
                     if(data.Lead.Id === JSON.parse(sessionStorage['currentUser']).Id) {
@@ -189,4 +203,26 @@ angular.module('issueTracker.controllers.projects', [])
                         $location.path('projects/' + data.Project.Id)
                     });
             };
+    }])
+    .controller('MyProjectsController', [
+        '$scope',
+        'projects',
+        'PAGE_SIZE',
+        function($scope, projects, pageSize) {
+            $scope.myProjectsParams = {
+                pageSize: pageSize,
+                pageNumber: 1
+            };
+
+            $scope.getMyProjects = function() {
+                projects.getUserProjects($scope.myProjectsParams)
+                    .then(function success(data) {
+                        $scope.myProjects = data.Projects;
+                        $scope.myTotalProjects = data.TotalCount;
+                    }, function error() {
+
+                    });
+            };
+
+            $scope.getMyProjects();
     }]);

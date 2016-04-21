@@ -42,10 +42,8 @@
 <div class="jumbotron container" style="height: 100%" ng-if="isAuthenticated()">
     <div class="col-md-5">
         <h2>Dashboard</h2>
-        <h3>Affiliated projects</h3>
-        <!--<a href="#">entirely new project</a>-->
         <a href="#/projects/add"><button type="button" class="btn btn-lg btn-success" ng-if="isAdmin()">Add new project</button></a>
-        <a href="#/projects"><button type="button" class="btn btn-lg btn-success" ng-if="isAdmin()">All projects</button></a>
+        <a href="#/projects" class="btn btn-lg btn-success" ng-click="getAllProjects()" ng-if="isAdmin()">All projects</a>
     </div>
     <div class="col-md-7">
         <table class="table">
@@ -61,7 +59,7 @@
                 <tr ng-repeat="issue in userIssues">
                     <td><a href="#issues/{{issue.Id}}">{{issue.Title}}</a></td>
                     <td>{{issue.Description}}</td>
-                    <td>{{issue.Project.Name}}</td>
+                    <td><a href="#/projects/{{issue.Project.Id}}">{{issue.Project.Name}}</a></td>
                     <td>{{issue.DueDate}}</td>
                 </tr>
             </tbody>
