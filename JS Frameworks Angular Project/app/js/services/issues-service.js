@@ -73,6 +73,7 @@ angular.module('issueTracker.services.issues', [])
                 .then(function success(response) {
                     deferred.resolve(response.data);
                 }, function error(err) {
+                    console.log(err);
                     deferred.reject(err);
                 });
 
