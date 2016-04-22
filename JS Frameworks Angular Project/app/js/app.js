@@ -14,7 +14,7 @@ angular.module('issueTracker', [
     'issueTracker.services.issues',
     'issueTracker.services.comments',
     'issueTracker.services.notifier',
-    'issueTracker.directives.filters'
+    'issueTracker.directives.templates'
     ])
     .config([
         '$routeProvider',

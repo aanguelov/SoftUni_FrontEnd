@@ -18,8 +18,8 @@ angular.module('issueTracker.services.notifier', [])
                     if (serverError && serverError.data.error_description) {
                         errors.push(serverError.data.error_description);
                     }
-                    if (serverError && serverError.modelState) {
-                        var modelStateErrors = serverError.modelState;
+                    if (serverError && serverError.data.modelState) {
+                        var modelStateErrors = serverError.data.modelState;
                         for (var propertyName in modelStateErrors) {
                             var errorMessages = modelStateErrors[propertyName];
                             var trimmedName =

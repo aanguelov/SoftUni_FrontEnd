@@ -1,4 +1,4 @@
-angular.module('issueTracker.directives.filters', [])
+angular.module('issueTracker.directives.templates', [])
     .directive('ngHeader', [function() {
         return {
             restrict: 'A',

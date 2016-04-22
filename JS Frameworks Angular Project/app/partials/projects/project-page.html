@@ -2,7 +2,7 @@
     <h2>Project page</h2>
 </div>
 <div class="jumbotron container">
-    <div class="col-md-5">
+    <div class="col-md-4">
         <span class="key"><strong>{{currentProject.ProjectKey}}</strong></span>
         <a href="#projects/edit/{{currentProject.Id}}" class="btn btn-success" ng-if="isAdmin() || isLeadOfProject" role="button">Edit</a>
         <a href="#projects/add-issue/{{currentProject.Id}}" class="btn btn-success" ng-if="isAdmin() || isLeadOfProject" role="button">Add Issue</a>
@@ -13,7 +13,7 @@
         <p>Priorities: {{currentProjectPriorities.join(', ')}}</p>
         <div ng-issue-filter></div>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-8">
         <table class="table">
             <thead>
             <tr>
@@ -24,7 +24,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="issue in currentProjectIssues">
+            <tr ng-repeat="issue in currentProjectIssues |
+                    filter: {Status: {Id: issueStatusFilter || '!!'}} |
+                    filter: {Assignee: {Username: issueAssigneeFilter || '!!'}} |
+                    filter: {Priority: {Name: issuePriorityFilter || '!!'}}">
                 <td><a href="#issues/{{issue.Id}}">{{issue.Title}}</a></td>
                 <td>{{issue.Description}}</td>
                 <td>{{issue.DueDate}}</td>

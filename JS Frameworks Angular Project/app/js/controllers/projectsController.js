@@ -106,13 +106,27 @@ angular.module('issueTracker.controllers.projects', [])
                     data.Priorities.forEach(function(p) {
                         $scope.currentProjectPriorities.push(p.Name);
                     });
+                }, function error(err) {
 
-                    projects.getIssues(data.Id)
-                        .then(function success(issuesData) {
-                            $scope.currentProjectIssues = issuesData;
-                        }, function error(err) {
+                });
 
-                        });
+            projects.getIssues($routeParams.id)
+                .then(function success(issuesData) {
+                    //console.log(issuesData);
+                    $scope.currentProjectIssues = issuesData;
+                    $scope.currentProjectIssuesAssignees = [];
+                    $scope.currentProjectIssuesPriorities = [];
+
+                    issuesData.forEach(function(issue) {
+
+                        if($scope.currentProjectIssuesAssignees.indexOf(issue.Assignee.Username) === -1) {
+                            $scope.currentProjectIssuesAssignees.push(issue.Assignee.Username);
+                        }
+
+                        if($scope.currentProjectIssuesPriorities.indexOf(issue.Priority.Name) === -1) {
+                            $scope.currentProjectIssuesPriorities.push(issue.Priority.Name);
+                        }
+                    });
                 }, function error(err) {
 
                 });

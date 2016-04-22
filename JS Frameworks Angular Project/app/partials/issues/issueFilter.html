@@ -1,7 +1,24 @@
-<select>
-    <option selected>Filter by status</option>
-    <option>Open</option>
-    <option>Closed</option>
-    <option>InProgress</option>
-    <option>StoppedProgress</option>
-</select>
+<div class="form-group">
+    <label for="statusFilter">Statuses</label>
+    <select class="form-control" id="statusFilter" ng-model="issueStatusFilter">
+        <option value="" selected>Filter issues by status</option>
+        <option value="2">Open</option>
+        <option value="1">Closed</option>
+        <option value="3">InProgress</option>
+        <option value="4">StoppedProgress</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="assigneeFilter">Assignees</label>
+    <select class="form-control" id="assigneeFilter" ng-model="issueAssigneeFilter">
+        <option value="" selected>Filter issues by assignee</option>
+        <option ng-repeat="assignee in currentProjectIssuesAssignees" value="{{assignee}}">{{assignee}}</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="priorityFilter">Priorities</label>
+    <select class="form-control" id="priorityFilter" ng-model="issuePriorityFilter">
+        <option value="" selected>Filter issues by priority</option>
+        <option ng-repeat="priority in currentProjectIssuesPriorities" value="{{priority}}">{{priority}}</option>
+    </select>
+</div>
