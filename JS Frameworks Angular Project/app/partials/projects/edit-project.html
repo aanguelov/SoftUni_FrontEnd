@@ -2,34 +2,39 @@
     <h2>Edit project</h2>
 </div>
 <div class="jumbotron container">
-    <form name="editProjectForm">
-        <label for="projectName">Name</label>
-        <input type="text"
-               class="form-control"
-               id="projectName"
-               ng-model="currentProject.Name" />
-        <div class="form-group" ng-if="isAdmin()">
-            <label for="projectLeader">Leader</label>
-            <select class="form-control" id="projectLeader" ng-model="currentProject.Lead.Id">
-                <option value="{{currentProject.Lead.Id}}">{{currentProject.Lead.Username}}</option>
-                <option ng-repeat="user in users" value="{{user.Id}}">{{user.Username}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="projectDescription">Description</label>
+    <div ng-if="isLeadOfProject || isAdmin()">
+        <form name="editProjectForm">
+            <label for="projectName">Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="projectName"
+                   ng-model="currentProject.Name" />
+            <div class="form-group" ng-if="isAdmin()">
+                <label for="projectLeader">Leader</label>
+                <select class="form-control" id="projectLeader" ng-model="currentProject.Lead.Id">
+                    <option value="{{currentProject.Lead.Id}}">{{currentProject.Lead.Username}}</option>
+                    <option ng-repeat="user in users" value="{{user.Id}}">{{user.Username}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="projectDescription">Description</label>
         <textarea class="form-control"
                   id="projectDescription"
                   ng-model="currentProject.Description">
         </textarea>
-        </div>
-        <div class="form-group">
-            <label for="projectPriorities">Priorities (comma separated)</label>
-            <input type="text" class="form-control" id="projectPriorities" ng-model="currentProjectPriorities" />
-        </div>
-        <div class="form-group">
-            <label for="projectLabels">Labels (comma separated)</label>
-            <input type="text" class="form-control" id="projectLabels" ng-model="currentProjectLabels" />
-        </div>
-        <button class="btn btn-primary" ng-click="editProject()">Edit project</button>
-    </form>
+            </div>
+            <div class="form-group">
+                <label for="projectPriorities">Priorities (comma separated)</label>
+                <input type="text" class="form-control" id="projectPriorities" ng-model="currentProjectPriorities" />
+            </div>
+            <div class="form-group">
+                <label for="projectLabels">Labels (comma separated)</label>
+                <input type="text" class="form-control" id="projectLabels" ng-model="currentProjectLabels" />
+            </div>
+            <button class="btn btn-primary" ng-click="editProject()">Edit project</button>
+        </form>
+    </div>
+    <div ng-if="!isLeadOfProject && !isAdmin()">
+        <h3>You are not admin or lead of this issue`s project.</h3>
+    </div>
 </div>

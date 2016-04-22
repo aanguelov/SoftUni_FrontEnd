@@ -113,6 +113,12 @@ angular.module('issueTracker.controllers.issues', [])
                     projects.getProjectById(data.Project.Id)
                         .then(function success(data) {
                             $scope.projectPriorities = data.Priorities;
+
+                            if(data.Lead.Id === JSON.parse(sessionStorage['currentUser']).Id) {
+                                $scope.isLeadOfProject = true;
+                            }else {
+                                $scope.isLeadOfProject = false;
+                            }
                         });
                 }, function error(err) {
                     notifyService.showError('Unable to get issue', err);

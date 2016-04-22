@@ -160,6 +160,13 @@ angular.module('issueTracker.controllers.projects', [])
                     data.Priorities.forEach(function(p) {
                         $scope.currentProjectPriorities.push(p.Name);
                     });
+
+                    if(data.Lead.Id === JSON.parse(sessionStorage['currentUser']).Id) {
+                        $scope.isLeadOfProject = true;
+                    }else {
+                        $scope.isLeadOfProject = false;
+                    }
+
                 }, function error(err) {
                     notifyService.showError('Unable to get project', err);
                 });
