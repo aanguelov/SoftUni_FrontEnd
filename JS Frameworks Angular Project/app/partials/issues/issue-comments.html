@@ -1,0 +1,9 @@
+<div ng-if="issueComments.length !== 0">
+    <h4>Comments</h4>
+    <ul class="list-group comments">
+        <li class="list-group-item" ng-repeat="comment in issueComments">
+            <h4 class="list-group-item-heading list-group-item-info">{{comment.Author.Username}} - {{comment.CreatedOn | date}}</h4>
+            <p class="list-group-item-text">{{comment.Text}}</p>
+        </li>
+    </ul>
+</div>

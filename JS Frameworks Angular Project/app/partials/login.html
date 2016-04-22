@@ -1,0 +1,9 @@
+<form name="loginUserForm">
+    <label for="username">Username</label>
+    <input type="text" id="username" required="required" ng-model="loginUser.username" class="form-control" />
+    <br />
+    <label for="password">Password</label>
+    <input type="password" required="required" ng-model="loginUser.password" id="password" class="form-control" />
+    <br />
+    <button class="btn btn-primary" ng-disabled="loginUserForm.$invalid" ng-click="login(loginUser)">Login</button>
+</form>
