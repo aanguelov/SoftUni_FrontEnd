@@ -4,42 +4,42 @@ angular.module('issueTracker.controllers.projects', [])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/projects', {
-                templateUrl: 'partials/projects/allProjects.html',
+                templateUrl: 'app/partials/projects/allProjects.html',
                 controller: 'ProjectsController',
                 access: {
                     requiresAdmin: true
                 }
             })
             .when('/projects/my', {
-                templateUrl: 'partials/projects/myProjects.html',
+                templateUrl: 'app/partials/projects/myProjects.html',
                 controller: 'MyProjectsController',
                 access: {
                     requiresLogin: true
                 }
             })
             .when('/projects/add', {
-                templateUrl: 'partials/projects/addProject.html',
+                templateUrl: 'app/partials/projects/addProject.html',
                 controller: 'ProjectsController',
                 access: {
                     requiresAdmin: true
                 }
             })
             .when('/projects/:id', {
-                templateUrl: 'partials/projects/project-page.html',
+                templateUrl: 'app/partials/projects/project-page.html',
                 controller: 'ViewProjectController',
                 access: {
                     requiresLogin: true
                 }
             })
             .when('/projects/edit/:id', {
-                templateUrl: 'partials/projects/edit-project.html',
+                templateUrl: 'app/partials/projects/edit-project.html',
                 controller: 'EditProjectController',
                 access: {
                     requiresLogin: true
                 }
             })
             .when('/projects/add-issue/:id', {
-                templateUrl: 'partials/issues/addIssue.html',
+                templateUrl: 'app/partials/issues/addIssue.html',
                 controller: 'AddIssueToProjectController',
                 access: {
                     requiresLogin: true

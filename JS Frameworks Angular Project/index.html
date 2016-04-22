@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="issueTracker">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>SoftUni Issue Tracker</title>
+    <link rel="stylesheet" href="app/css/bootstrap.css" />
+    <link rel="stylesheet" href="app/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="app/css/app.css" />
+</head>
+<body ng-controller="CommonController">
+
+    <div ng-header></div>
+
+    <div class="container">
+        <div ng-view />
+    </div>
+
+    <div ng-footer></div>
+
+    <!--libraries-->
+    <script src="app/lib/angular/angular.js"></script>
+    <script src="app/lib/angular/angular-resource.js"></script>
+    <script src="app/lib/angular/angular-route.js"></script>
+    <script src="app/lib/jquery/jquery-2.1.3.js"></script>
+    <script src="app/lib/bootstrap/bootstrap-3.1.1.js"></script>
+    <script src="app/lib/ui.bootstrap/ui.bootstrap.pagination-0.12.0.js"></script>
+    <script src="app/lib/jquery.noty/jquery.noty.js"></script>
+
+    <script src="app/js/app.js"></script>
+
+    <!--controllers-->
+    <script src="app/js/controllers/homeController.js"></script>
+    <script src="app/js/controllers/commonController.js"></script>
+    <script src="app/js/controllers/projectsController.js"></script>
+    <script src="app/js/controllers/issuesController.js"></script>
+
+    <!--services-->
+    <script src="app/js/services/authentication-service.js"></script>
+    <script src="app/js/services/notify-service.js"></script>
+    <script src="app/js/services/projects-service.js"></script>
+    <script src="app/js/services/users-service.js"></script>
+    <script src="app/js/services/issues-service.js"></script>
+    <script src="app/js/services/comments-service.js"></script>
+
+    <!--directives-->
+    <script src="app/js/directives/templateDirectives.js"></script>
+</body>
+</html>

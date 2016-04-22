@@ -2,14 +2,14 @@ angular.module('issueTracker.controllers.issues', [])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/issues/:id', {
-                templateUrl: 'partials/issues/issue-page.html',
+                templateUrl: 'app/partials/issues/issue-page.html',
                 controller: 'ViewIssueController',
                 access: {
                     requiresLogin: true
                 }
             })
             .when('/issues/edit/:id', {
-                templateUrl: 'partials/issues/edit-issue.html',
+                templateUrl: 'app/partials/issues/edit-issue.html',
                 controller: 'EditIssueController',
                 access: {
                     requiresLogin: true
@@ -20,8 +20,11 @@ angular.module('issueTracker.controllers.issues', [])
         '$scope',
         '$routeParams',
         'issues',
+        'comments',
         'projects',
-        function($scope, $routeParams, issues, projects) {
+        function($scope, $routeParams, issues, comments, projects) {
+            $scope.issueComment = {};
+
             $scope.getIssueById = function() {
                 issues.getIssueById($routeParams.id)
                     .then(function success(data) {
@@ -47,6 +50,16 @@ angular.module('issueTracker.controllers.issues', [])
                                     $scope.isLeadOfProject = false;
                                 }
                             });
+
+                    }, function error(err) {
+
+                    });
+            };
+
+            $scope.getIssueComments = function() {
+                comments.getIssueComments($routeParams.id)
+                    .then(function success(data) {
+                        $scope.issueComments = data;
                     }, function error(err) {
 
                     });
@@ -59,7 +72,18 @@ angular.module('issueTracker.controllers.issues', [])
                     });
             };
 
+            $scope.addComment = function(comment) {
+                comments.addCommentToIssue($routeParams.id, comment)
+                    .then(function success(data) {
+                        $scope.issueComments = data;
+                        $scope.issueComment.Text = '';
+                    }, function error(err) {
+
+                    });
+            };
+
             $scope.getIssueById();
+            $scope.getIssueComments();
 
     }])
     .controller('EditIssueController', [

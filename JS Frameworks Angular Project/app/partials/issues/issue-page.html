@@ -16,18 +16,34 @@
             <p>Status: {{currentIssue.Status.Name}}</p>
             <p>Labels: {{currentIssueLabels.join(', ')}}</p>
         </div>
-        <div class="col-md-5" ng-if="currentIssue.AvailableStatuses.length !== 0">
-            <ul class="status">
+        <div class="col-md-5">
+            <ul class="status"  ng-if="currentIssue.AvailableStatuses.length !== 0">
                 Available statuses:
                 <li ng-repeat="status in currentIssue.AvailableStatuses">-----{{status.Name}}
                     <button ng-click="changeStatus(status.Id)"
-                            ng-if="isAdmin() || isAssignee"
+                            ng-if="isAdmin() || isAssignee || isLeadOfProject"
                             class="btn btn-success"
                             role="button">
                         Change
                     </button>
                 </li>
             </ul>
+            <div ng-if="issueComments.length !== 0">
+                <h4>Comments</h4>
+                <ul class="list-group comments">
+                    <li class="list-group-item" ng-repeat="comment in issueComments">
+                        <h4 class="list-group-item-heading list-group-item-info">{{comment.Author.Username}} - {{comment.CreatedOn}}</h4>
+                        <p class="list-group-item-text">{{comment.Text}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="form-group" ng-if="isAdmin() || isLeadOfProject || isAssignee">
+                <label for="addComment">Add comment</label>
+                <textarea class="form-control" id="addComment" ng-model="issueComment.Text" required></textarea>
+                <div class="text-right">
+                    <button class="btn btn-primary btn-sm" ng-click="addComment(issueComment)">Add</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

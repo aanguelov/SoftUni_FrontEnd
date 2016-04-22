@@ -20,7 +20,7 @@ body {
     font-size: 25px;
 }
 
-.status {
+.status, .comments {
     list-style-type: none;
 }
 
