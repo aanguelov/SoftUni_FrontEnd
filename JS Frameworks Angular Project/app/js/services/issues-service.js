@@ -59,8 +59,6 @@ angular.module('issueTracker.services.issues', [])
                     '&PriorityId=' + issue.PriorityId +
                     dataLabels;
 
-            console.log(data);
-
             var req = {
                 method: 'PUT',
                 url: baseUrl + 'issues/' + id,

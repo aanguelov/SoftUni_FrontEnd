@@ -105,8 +105,6 @@ angular.module('issueTracker.services.authentication', [])
                         '&NewPassword=' + user.newPassword +
                         '&ConfirmPassword=' + user.newPasswordConfirm;
 
-                console.log(data);
-
                 var req = {
                     method: 'POST',
                     url: baseUrl + 'api/Account/ChangePassword',

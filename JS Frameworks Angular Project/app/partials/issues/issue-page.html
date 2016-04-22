@@ -22,7 +22,7 @@
                 Available statuses:
                 <li ng-repeat="status in currentIssue.AvailableStatuses">-----{{status.Name}}
                     <button ng-click="changeStatus(status.Id)"
-                            ng-if="isAssignee || isLeadOfProject"
+                            ng-if="isAssignee || isLeadOfProject || isAdmin()"
                             class="btn btn-success"
                             role="button">
                         Change

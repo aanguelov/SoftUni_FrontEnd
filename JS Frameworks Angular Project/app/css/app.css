@@ -32,4 +32,10 @@ body {
 
 .footer {
     background-color: #0f0f0f;
+    height: 5%;
+    padding-top: 5px;
+}
+
+.softuni-link {
+    color: #aaaaaa;
 }

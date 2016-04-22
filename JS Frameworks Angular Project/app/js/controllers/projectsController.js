@@ -50,8 +50,9 @@ angular.module('issueTracker.controllers.projects', [])
         '$scope',
         '$location',
         'projects',
+        'notifyService',
         'PAGE_SIZE',
-        function($scope, $location, projects, pageSize) {
+        function($scope, $location, projects, notifyService, pageSize) {
             $scope.projectsParams = {
                 pageSize: pageSize,
                 pageNumber: 1
@@ -64,7 +65,7 @@ angular.module('issueTracker.controllers.projects', [])
                     .then(function success(data) {
                         $location.path('projects/' + data.Id);
                     }, function error(err) {
-                        console.log(err);
+                        notifyService.showError('Unable to add project', err);
                     });
             };
 
@@ -74,7 +75,7 @@ angular.module('issueTracker.controllers.projects', [])
                         $scope.allProjects = data.Projects;
                         $scope.projectsCount = data.TotalPages * $scope.projectsParams.pageSize;
                     }, function error(err) {
-                        console.log(err);
+                        notifyService.showError('Unable to get projects', err);
                     });
             };
 
@@ -84,9 +85,10 @@ angular.module('issueTracker.controllers.projects', [])
         '$scope',
         '$routeParams',
         'projects',
-        function($scope, $routeParams, projects) {
+        'notifyService',
+        function($scope, $routeParams, projects, notifyService) {
 
-            projects.showProject($routeParams.id)
+            projects.getProjectById($routeParams.id)
                 .then(function success(data) {
                     $scope.currentProject = data;
 
@@ -107,12 +109,11 @@ angular.module('issueTracker.controllers.projects', [])
                         $scope.currentProjectPriorities.push(p.Name);
                     });
                 }, function error(err) {
-
+                    notifyService.showError('Unable to get project', err);
                 });
 
             projects.getIssues($routeParams.id)
                 .then(function success(issuesData) {
-                    //console.log(issuesData);
                     $scope.currentProjectIssues = issuesData;
                     $scope.currentProjectIssuesAssignees = [];
                     $scope.currentProjectIssuesPriorities = [];
@@ -128,7 +129,7 @@ angular.module('issueTracker.controllers.projects', [])
                         }
                     });
                 }, function error(err) {
-
+                    notifyService.showError('Unable to get issues', err);
                 });
     }])
     .controller('EditProjectController', [
@@ -136,7 +137,8 @@ angular.module('issueTracker.controllers.projects', [])
         '$routeParams',
         '$location',
         'projects',
-        function($scope, $routeParams, $location, projects) {
+        'notifyService',
+        function($scope, $routeParams, $location, projects, notifyService) {
 
             $scope.allUsers();
 
@@ -144,7 +146,7 @@ angular.module('issueTracker.controllers.projects', [])
                 return str.split(',');
             }
 
-            projects.showProject($routeParams.id)
+            projects.getProjectById($routeParams.id)
                 .then(function success(data) {
                     $scope.currentProject = data;
 
@@ -159,7 +161,7 @@ angular.module('issueTracker.controllers.projects', [])
                         $scope.currentProjectPriorities.push(p.Name);
                     });
                 }, function error(err) {
-
+                    notifyService.showError('Unable to get project', err);
                 });
 
             $scope.editProject = function() {
@@ -182,7 +184,7 @@ angular.module('issueTracker.controllers.projects', [])
                     .then(function success(data) {
                         $location.path('projects/' + data.Id)
                     }, function error(err) {
-
+                        notifyService.showError('Unable to edit project', err);
                     });
             };
     }])
@@ -191,10 +193,11 @@ angular.module('issueTracker.controllers.projects', [])
         '$routeParams',
         '$location',
         'projects',
-        function($scope, $routeParams, $location, projects) {
+        'notifyService',
+        function($scope, $routeParams, $location, projects, notifyService) {
             $scope.allUsers();
 
-            projects.showProject($routeParams.id)
+            projects.getProjectById($routeParams.id)
                 .then(function success(data) {
                     $scope.projectPriorities = data.Priorities;
                 });
@@ -214,6 +217,8 @@ angular.module('issueTracker.controllers.projects', [])
                 projects.addIssueToProject(issueToSend)
                     .then(function success(data) {
                         $location.path('projects/' + data.Project.Id)
+                    }, function error(err) {
+                        notifyService.showError('Unable to add issue', err);
                     });
             };
     }])
@@ -221,7 +226,8 @@ angular.module('issueTracker.controllers.projects', [])
         '$scope',
         'projects',
         'PAGE_SIZE',
-        function($scope, projects, pageSize) {
+        'notifyService',
+        function($scope, projects, pageSize, notifyService) {
             $scope.myProjectsParams = {
                 pageSize: pageSize,
                 pageNumber: 1
@@ -233,7 +239,7 @@ angular.module('issueTracker.controllers.projects', [])
                         $scope.myProjects = data.Projects;
                         $scope.myTotalProjects = data.TotalCount;
                     }, function error() {
-
+                        notifyService.showError('Unable to get user projects.', err);
                     });
             };
 

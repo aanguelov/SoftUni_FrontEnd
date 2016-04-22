@@ -22,7 +22,8 @@ angular.module('issueTracker.controllers.issues', [])
         'issues',
         'comments',
         'projects',
-        function($scope, $routeParams, issues, comments, projects) {
+        'notifyService',
+        function($scope, $routeParams, issues, comments, projects, notifyService) {
             $scope.issueComment = {};
 
             $scope.getIssueById = function() {
@@ -42,7 +43,7 @@ angular.module('issueTracker.controllers.issues', [])
                             $scope.currentIssueLabels.push(label.Name);
                         });
 
-                        projects.showProject(data.Project.Id)
+                        projects.getProjectById(data.Project.Id)
                             .then(function success(data) {
                                 if(data.Lead.Id === JSON.parse(sessionStorage['currentUser']).Id) {
                                     $scope.isLeadOfProject = true;
@@ -52,7 +53,7 @@ angular.module('issueTracker.controllers.issues', [])
                             });
 
                     }, function error(err) {
-
+                        notifyService.showError('Unable to get issue', err);
                     });
             };
 
@@ -61,7 +62,7 @@ angular.module('issueTracker.controllers.issues', [])
                     .then(function success(data) {
                         $scope.issueComments = data;
                     }, function error(err) {
-
+                        notifyService.showError('Unable to get comments', err);
                     });
             };
 
@@ -69,6 +70,8 @@ angular.module('issueTracker.controllers.issues', [])
                 issues.changeStatus($routeParams.id, statusId)
                     .then(function() {
                         $scope.getIssueById();
+                    }, function error(err) {
+                        notifyService.showError('Unable to change status', err);
                     });
             };
 
@@ -78,7 +81,7 @@ angular.module('issueTracker.controllers.issues', [])
                         $scope.issueComments = data;
                         $scope.issueComment.Text = '';
                     }, function error(err) {
-
+                        notifyService.showError('Unable to add comment', err);
                     });
             };
 
@@ -92,7 +95,8 @@ angular.module('issueTracker.controllers.issues', [])
         '$location',
         'issues',
         'projects',
-        function($scope, $routeParams, $location, issues, projects) {
+        'notifyService',
+        function($scope, $routeParams, $location, issues, projects, notifyService) {
             $scope.allUsers();
 
             issues.getIssueById($routeParams.id)
@@ -106,12 +110,12 @@ angular.module('issueTracker.controllers.issues', [])
                         $scope.currentIssueLabels.push(label.Name);
                     });
 
-                    projects.showProject(data.Project.Id)
+                    projects.getProjectById(data.Project.Id)
                         .then(function success(data) {
                             $scope.projectPriorities = data.Priorities;
                         });
                 }, function error(err) {
-
+                    notifyService.showError('Unable to get issue', err);
                 });
 
             $scope.editIssue = function() {
@@ -132,7 +136,7 @@ angular.module('issueTracker.controllers.issues', [])
                     .then(function success(data) {
                         $location.path('issues/' + data.Id);
                     }, function error(err) {
-                        console.log(err);
+                        notifyService.showError('Unable to edit issue', err);
                     });
             };
     }]);

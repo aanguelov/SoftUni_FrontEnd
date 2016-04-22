@@ -19,6 +19,7 @@
            ng-model="registerUser.confirmPassword"
            id="reg-confirm-password"
            class="form-control" />
+    <br />
     <button class="btn btn-primary"
             ng-disabled="registerUserForm.$invalid || registerUser.password != registerUser.confirmPassword"
             ng-click="register(registerUser)">Register</button>

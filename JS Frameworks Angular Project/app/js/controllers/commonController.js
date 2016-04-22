@@ -4,7 +4,7 @@ angular.module('issueTracker.controllers.common', [])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/profile/password', {
-                templateUrl: 'app/partials/changePass.html',
+                templateUrl: 'app/partials/common/changePass.html',
                 controller: 'CommonController',
                 access: {
                     requiresLogin: true

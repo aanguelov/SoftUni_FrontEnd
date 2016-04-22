@@ -1,4 +1,4 @@
-<form name="addCommentForm">
+<form name="addCommentForm" ng-if="isLeadOfProject || isAssignee">
     <div class="form-group">
         <label for="addComment">Add comment</label>
         <textarea class="form-control" id="addComment" ng-model="issueComment.Text" required></textarea>

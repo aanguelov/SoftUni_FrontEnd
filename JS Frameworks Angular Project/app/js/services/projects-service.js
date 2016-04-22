@@ -68,7 +68,7 @@ angular.module('issueTracker.services.projects', [])
                 return deferred.promise;
             }
 
-            function showProject(projectId) {
+            function getProjectById(projectId) {
                 var deferred = $q.defer(),
                     projectReq = {
                         method: 'GET',
@@ -162,8 +162,6 @@ angular.module('issueTracker.services.projects', [])
                         '&PriorityId=' + issue.PriorityId +
                         dataLabels;
 
-                //console.log(data);
-
                 var req = {
                     method: 'POST',
                     url: baseUrl + 'issues/',
@@ -210,7 +208,7 @@ angular.module('issueTracker.services.projects', [])
                 getAllProjects: getAllProjects,
                 addProject: addProject,
                 editProject: editProject,
-                showProject: showProject,
+                getProjectById: getProjectById,
                 getIssues: getIssuesByProjectId,
                 addIssueToProject: addIssueToProject,
                 getUserProjects: getUserProjects
